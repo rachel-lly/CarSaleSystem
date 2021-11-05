@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    >
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/userid_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        app:cardCornerRadius="20dp"
+        app:strokeColor="#39aeff"
+        app:strokeWidth="1dp"
+        android:backgroundTint="#eff7ff"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="10dp"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/userid"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="账号"
+                android:layout_marginStart="15dp"
+                />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/password_card"
+        android:layout_below="@+id/userid_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        app:cardCornerRadius="20dp"
+        app:strokeColor="#39aeff"
+        app:strokeWidth="1dp"
+        android:backgroundTint="#eff7ff"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="10dp"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/password"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="密码"
+                android:layout_marginStart="15dp"
+                />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="登录"
+        android:textColor="#fff"
+        android:background="@color/colorPrimary"
+        android:layout_below="@+id/password_card"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+
+        />
+
+</RelativeLayout>
