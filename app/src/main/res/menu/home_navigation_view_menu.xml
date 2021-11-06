@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/item_car"
+        android:title="car"
+        android:icon="@mipmap/car"
+        />
+
+    <item
+        android:id="@+id/item_customer"
+        android:title="customer"
+        android:icon="@mipmap/customer"
+        />
+
+    <item
+        android:id="@+id/item_mine"
+        android:title="mine"
+        android:icon="@mipmap/mine"
+        />
+
+
+</menu>

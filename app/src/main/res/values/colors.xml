@@ -2,8 +2,8 @@
 <resources>
 
     <color name="colorPrimary">#39aeff</color>
-    <color name="colorPrimaryVariant">#39aeff</color>
-    <color name="colorOnPrimary">#39aeff</color>
+    <color name="colorPrimaryDark">#39aeff</color>
+    <color name="colorAccent">#39aeff</color>
 
 
     <color name="purple_200">#FFBB86FC</color>
