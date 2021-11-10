@@ -1,4 +1,4 @@
-package com.example.carsalesystem;
+package com.example.carsalesystem.view;
 
 import android.content.Context;
 import android.graphics.Bitmap;

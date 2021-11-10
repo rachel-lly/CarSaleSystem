@@ -6,10 +6,10 @@
     android:layout_height="match_parent"
     android:paddingTop="50dp"
     android:background="#f6f6f6"
-    tools:context=".MineFragment">
+    tools:context=".fragment.MineFragment">
 
 
-    <com.example.carsalesystem.CircleImageView
+    <com.example.carsalesystem.view.CircleImageView
         android:id="@+id/mine_avater"
         android:layout_width="80dp"
         android:layout_height="80dp"

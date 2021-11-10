@@ -7,7 +7,7 @@
     android:layout_marginEnd="5dp"
     android:layout_marginTop="10dp"
     android:layout_marginBottom="10dp"
-    tools:context=".CarListFragment">
+    tools:context=".fragment.CarListFragment">
 
 
     <androidx.recyclerview.widget.RecyclerView
