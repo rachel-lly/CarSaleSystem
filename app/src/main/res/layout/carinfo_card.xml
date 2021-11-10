@@ -7,56 +7,145 @@
     android:layout_margin="5dp"
     app:cardCornerRadius="4dp">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?android:attr/colorBackground"
+        android:orientation="horizontal"
         >
 
         <ImageView
             android:id="@+id/car_img"
-            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_width="0dp"
             android:layout_height="150dp"
             android:scaleType="centerCrop"
             android:src="@drawable/car_item"
+            android:layout_gravity="center_vertical"
             />
 
-
-        <TextView
-            android:id="@+id/car_name"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/car_img"
-            android:layout_centerHorizontal="true"
-            android:textSize="16sp"
-            android:text="布加迪"
-            android:textColor="?android:attr/textColorPrimary"
-            />
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            >
+
+            <LinearLayout
+                android:id="@+id/car_name_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="20dp"
+                    android:src="@mipmap/yellow_car_item"
+                    android:layout_gravity="center_vertical"
+                    />
+
+                <TextView
+                    android:id="@+id/car_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="布加迪"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="?android:attr/textColorPrimary"
+                    />
+
+            </LinearLayout>
 
 
-        <TextView
-            android:id="@+id/car_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/car_name"
-            android:layout_centerHorizontal="true"
-            android:textSize="16sp"
-            android:text="200万"
-            android:textColor="?android:attr/textColorPrimary"
-            />
+            <LinearLayout
+                android:id="@+id/price_layout"
+                android:layout_below="@+id/car_name_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:id="@+id/car_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:text="200"
+                    android:textStyle="bold"
+                    android:textColor="?android:attr/textColorPrimary"
+                    />
 
-        <TextView
-            android:id="@+id/car_cnt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/car_price"
-            android:layout_centerHorizontal="true"
-            android:textSize="16sp"
-            android:text="16"
-            android:textColor="?android:attr/textColorPrimary"
-            />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:text="万"
+                    android:textColor="?android:attr/textColorPrimary"
+                    />
 
-    </RelativeLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:textSize="14sp"
+                    android:text="仅剩"
+                    />
+
+                <TextView
+                    android:id="@+id/car_cnt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:textSize="16sp"
+                    android:text="16"
+                    android:textColor="?android:attr/textColorPrimary"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sold_layout"
+                android:layout_below="@+id/price_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="已售"
+                    />
+
+                <TextView
+                    android:id="@+id/car_sold_cnt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:textSize="16sp"
+                    android:text="16"
+                    android:textColor="?android:attr/textColorPrimary"
+                    />
+
+            </LinearLayout>
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sold_layout"
+                android:text="布加迪的车子就像是艺术品一般，它车辆的引擎全是由手工制造和调校，所有可以轻量化的零件都不放过，布加迪注重车辆的细节与平衡。"
+                />
+
+        </RelativeLayout>
+
+
+
+
+    </LinearLayout>
 
 
 </com.google.android.material.card.MaterialCardView>
