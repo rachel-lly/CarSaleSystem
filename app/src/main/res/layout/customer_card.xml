@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/colorBackground"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:src="@mipmap/customer_item"
+            android:layout_gravity="center_vertical"
+            />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            >
+
+            <LinearLayout
+                android:id="@+id/customer_name_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:text="姓名"
+                    android:layout_gravity="center_vertical"
+                    />
+
+
+                <TextView
+                    android:id="@+id/car_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="李白"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="5dp"
+                    android:textColor="?android:attr/textColorPrimary"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_below="@+id/customer_name_layout"
+                android:id="@+id/customer_sex_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:text="性别"
+                    android:layout_gravity="center_vertical"
+                    />
+
+
+                <TextView
+                    android:id="@+id/customer_sex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="男"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="5dp"
+                    android:textColor="?android:attr/textColorPrimary"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/customer_age_layout"
+                android:layout_below="@+id/customer_sex_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="年龄"
+                    />
+
+                <TextView
+                    android:id="@+id/customer_age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:textSize="16sp"
+                    android:text="16"
+                    android:textColor="?android:attr/textColorPrimary"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/customer_phone_layout"
+                android:layout_below="@+id/customer_age_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="电话"
+                    />
+
+                <TextView
+                    android:id="@+id/customer_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:textSize="16sp"
+                    android:text="17768566754"
+                    android:textColor="?android:attr/textColorPrimary"
+                    />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+</com.google.android.material.card.MaterialCardView>
