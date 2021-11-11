@@ -42,12 +42,13 @@ public class MineFragment extends Fragment {
 //            mParam1 = getArguments().getString(ARG_PARAM1);
 //            mParam2 = getArguments().getString(ARG_PARAM2);
 //        }
+        mBinding = FragmentMineBinding.inflate(LayoutInflater.from(this.getContext()));
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mBinding = FragmentMineBinding.inflate(LayoutInflater.from(this.getContext()));
-        return inflater.inflate(R.layout.fragment_mine, container, false);
+
+        return mBinding.getRoot();
     }
 }

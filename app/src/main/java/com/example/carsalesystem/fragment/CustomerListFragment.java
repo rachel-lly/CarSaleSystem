@@ -3,13 +3,21 @@ package com.example.carsalesystem.fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.carsalesystem.R;
+import com.example.carsalesystem.adapter.CarListAdapter;
+import com.example.carsalesystem.adapter.CustomerListAdapter;
 import com.example.carsalesystem.databinding.FragmentCustomerListBinding;
+import com.example.carsalesystem.model.Car;
+import com.example.carsalesystem.model.Customer;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,6 +27,8 @@ import com.example.carsalesystem.databinding.FragmentCustomerListBinding;
 public class CustomerListFragment extends Fragment {
 
     private FragmentCustomerListBinding mBinding;
+
+    private List<Customer> customers = new ArrayList<>();
 
     public CustomerListFragment() {
         // Required empty public constructor
@@ -41,12 +51,25 @@ public class CustomerListFragment extends Fragment {
 //            mParam1 = getArguments().getString(ARG_PARAM1);
 //            mParam2 = getArguments().getString(ARG_PARAM2);
 //        }
+
+        mBinding = FragmentCustomerListBinding.inflate(LayoutInflater.from(this.getContext()));
+
+        customers.add(new Customer("111","林利莹","女","23","3415425235"));
+        customers.add(new Customer("111","林利莹","女","23","3415425235"));
+        customers.add(new Customer("111","林利莹","女","23","3415425235"));
+        customers.add(new Customer("111","林利莹","女","23","3415425235"));
+        customers.add(new Customer("111","林利莹","女","23","3415425235"));
+        CustomerListAdapter customerListAdapter = new CustomerListAdapter(this.getContext(),customers);
+        mBinding.recycleview.setAdapter(customerListAdapter);
+        mBinding.recycleview.setLayoutManager(new GridLayoutManager(this.getContext(),1));
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mBinding = FragmentCustomerListBinding.inflate(LayoutInflater.from(this.getContext()));
-        return inflater.inflate(R.layout.fragment_customer_list, container, false);
+
+        return mBinding.getRoot();
     }
 }

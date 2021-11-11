@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
+    android:layout_margin="10dp"
+    app:cardUseCompatPadding="true"
     app:cardCornerRadius="4dp">
 
     <LinearLayout
@@ -18,7 +19,8 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="100dp"
-            android:src="@mipmap/customer_item"
+            android:padding="5dp"
+            android:src="@drawable/avatar"
             android:layout_gravity="center_vertical"
             />
 
@@ -39,17 +41,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:text="姓名"
                     android:layout_gravity="center_vertical"
                     />
 
 
                 <TextView
-                    android:id="@+id/car_name"
+                    android:id="@+id/customer_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:textSize="14sp"
                     android:text="李白"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="5dp"
@@ -70,7 +72,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:text="性别"
                     android:layout_gravity="center_vertical"
                     />
@@ -80,7 +82,7 @@
                     android:id="@+id/customer_sex"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:textSize="14sp"
                     android:text="男"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="5dp"
@@ -101,6 +103,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="年龄"
+                    android:textSize="12sp"
                     />
 
                 <TextView
@@ -108,7 +111,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:text="16"
                     android:textColor="?android:attr/textColorPrimary"
                     />
@@ -127,6 +130,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="电话"
+                    android:textSize="12sp"
                     />
 
                 <TextView
@@ -134,7 +138,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:text="17768566754"
                     android:textColor="?android:attr/textColorPrimary"
                     />
