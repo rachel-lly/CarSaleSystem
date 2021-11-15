@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary">#377eb4</color>
-    <color name="colorPrimaryDark">#377eb4</color>
-    <color name="colorAccent">#377eb4</color>
+    <color name="colorPrimary">#29bb89</color>
+    <color name="colorPrimaryDark">#29bb89</color>
+    <color name="colorAccent">#29bb89</color>
 
     <color name="white_bg_gray">#fff</color>
     <color name="press_color">#f1f0ee</color>
 
     <color name="color_background_gray">#f3f3f1</color>
+
+    <color name="line_color_gray">#d9dddf</color>
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>

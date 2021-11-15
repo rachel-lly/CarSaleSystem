@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.carsalesystem.R;
 import com.example.carsalesystem.adapter.CarListAdapter;
 import com.example.carsalesystem.databinding.FragmentCarListBinding;
 import com.example.carsalesystem.model.Car;

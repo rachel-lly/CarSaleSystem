@@ -4,12 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
-import android.view.View;
-
 import com.example.carsalesystem.R;
 import com.example.carsalesystem.adapter.PagerAdapter;
 import com.example.carsalesystem.databinding.ActivityMainBinding;
@@ -17,7 +14,6 @@ import com.example.carsalesystem.fragment.CarListFragment;
 import com.example.carsalesystem.fragment.CustomerListFragment;
 import com.example.carsalesystem.fragment.MineFragment;
 import com.google.android.material.navigation.NavigationBarView;
-
 import java.util.ArrayList;
 import java.util.List;
 

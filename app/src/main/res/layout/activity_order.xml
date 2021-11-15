@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background_gray"
+    android:orientation="vertical"
+    tools:context=".activity.OrderActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/home_toolbar"
+        android:layout_width="match_parent"
+        app:title="订单信息"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/colorPrimaryDark"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/OverflowMenuStyle"
+        app:layout_scrollFlags="scroll|enterAlways|snap"
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        >
+
+        <RelativeLayout
+            style="@style/layout_style"
+            android:background="@drawable/item_pressed_state"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            >
+
+            <TextView
+                android:text="名称"
+                style="@style/linear_item_text_behind_icon"
+                />
+
+            <TextView
+                android:id="@+id/car_name"
+                android:text="特斯拉"
+                style="@style/linear_item_text_end"
+                />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f4f4f4"
+            />
+
+        <RelativeLayout
+            style="@style/layout_style"
+            android:background="@drawable/item_pressed_state"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            >
+
+            <TextView
+                android:text="价格"
+                style="@style/linear_item_text_behind_icon"
+                />
+
+            <TextView
+                android:id="@+id/car_money"
+                android:text="200"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@+id/wan_text"
+                />
+
+            <TextView
+                android:id="@+id/wan_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="万"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"
+                />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f4f4f4"
+            />
+
+        <RelativeLayout
+            style="@style/layout_style"
+            android:background="@drawable/item_pressed_state"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            >
+
+            <TextView
+                android:text="购买数量"
+                style="@style/linear_item_text_behind_icon"
+                />
+
+            <TextView
+                android:text="1"
+                style="@style/linear_item_text_end"
+                />
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginBottom="5dp"
+        android:text="销售信息"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+        <RelativeLayout
+            style="@style/layout_style"
+            android:background="@drawable/item_pressed_state"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            >
+
+            <TextView
+                android:text="所属经销商"
+                style="@style/linear_item_text_behind_icon"
+                />
+
+            <TextView
+                android:id="@+id/soldman_agency"
+                android:text="广汇集团"
+                style="@style/linear_item_text_end"
+                />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f4f4f4"
+            />
+
+        <RelativeLayout
+            style="@style/layout_style"
+            android:background="@drawable/item_pressed_state"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            >
+
+            <TextView
+                android:text="销售人员"
+                style="@style/linear_item_text_behind_icon"
+                />
+
+            <TextView
+                android:id="@+id/soldman_name"
+                android:text="林利莹"
+                style="@style/linear_item_text_end"
+                />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f4f4f4"
+            />
+
+        <RelativeLayout
+            style="@style/layout_style"
+            android:background="@drawable/item_pressed_state"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            >
+
+            <TextView
+                android:text="销售人员电话"
+                style="@style/linear_item_text_behind_icon"
+                />
+
+            <TextView
+                android:id="@+id/soldman_phone"
+                android:text="125768878"
+                style="@style/linear_item_text_end"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/sure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="确定"
+        android:textColor="#fff"
+        android:background="#77afd7"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        />
+
+
+</LinearLayout>

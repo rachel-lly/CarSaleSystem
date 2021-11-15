@@ -28,4 +28,22 @@
         <item name="paddingEnd">10dp</item>
     </style>
 
+    <style name="linear_item_icon">
+        <item name="android:layout_width">20dp</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="icon_in_LinearLayout">
+        <item name="android:layout_width">20dp</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="horizon_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/line_color_gray</item>
+    </style>
+
 </resources>
