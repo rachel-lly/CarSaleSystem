@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_background_gray"
+    tools:context=".activity.CustomerDetailActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/customer_detail_toolbar"
+        android:layout_width="match_parent"
+        app:title="顾客信息"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/colorPrimaryDark"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/OverflowMenuStyle"
+        app:layout_scrollFlags="scroll|enterAlways|snap"
+        />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            >
+
+            <RelativeLayout
+                style="@style/layout_style"
+                android:background="@drawable/item_pressed_state"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                >
+
+                <TextView
+                    android:text="姓名"
+                    style="@style/linear_item_text_behind_icon"
+                    />
+
+                <TextView
+                    android:id="@+id/customer_name"
+                    android:text="林利莹"
+                    style="@style/linear_item_text_end"
+                    />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#f4f4f4"
+                />
+
+            <RelativeLayout
+                style="@style/layout_style"
+                android:background="@drawable/item_pressed_state"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                >
+
+                <TextView
+                    android:text="性别"
+                    style="@style/linear_item_text_behind_icon"
+                    />
+
+                <TextView
+                    android:id="@+id/customer_sex"
+                    android:text="女"
+                    style="@style/linear_item_text_end"
+                    />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#f4f4f4"
+                />
+
+            <RelativeLayout
+                style="@style/layout_style"
+                android:background="@drawable/item_pressed_state"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                >
+
+                <TextView
+                    android:text="年龄"
+                    style="@style/linear_item_text_behind_icon"
+                    />
+
+                <TextView
+                    android:id="@+id/customer_age"
+                    android:text="21"
+                    style="@style/linear_item_text_end"
+                    />
+
+            </RelativeLayout>
+
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#f4f4f4"
+                />
+
+            <RelativeLayout
+                style="@style/layout_style"
+                android:background="@drawable/item_pressed_state"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                >
+
+                <TextView
+                    android:text="电话"
+                    style="@style/linear_item_text_behind_icon"
+                    />
+
+                <TextView
+                    android:id="@+id/customer_phone"
+                    android:text="125768878"
+                    style="@style/linear_item_text_end"
+                    />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        />
+
+
+
+
+</LinearLayout>
