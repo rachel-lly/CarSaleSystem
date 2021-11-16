@@ -2,12 +2,14 @@ package com.example.carsalesystem.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
+import com.example.carsalesystem.R;
 import com.example.carsalesystem.databinding.CarinfoCardBinding;
 import com.example.carsalesystem.model.Car;
 import java.util.List;
@@ -27,8 +29,9 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.ViewHold
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.carinfo_card,parent,false);
         mBinding = CarinfoCardBinding.inflate(LayoutInflater.from(context));
-        ViewHolder holder = new ViewHolder(mBinding);
+        ViewHolder holder = new ViewHolder(view,mBinding);
 
 
         return holder;
@@ -54,7 +57,6 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private CarinfoCardBinding mBinding;
 
         private ImageView carImg;
 
@@ -64,9 +66,10 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.ViewHold
         private TextView carSoldNum;
         private TextView carDes;
 
-        public ViewHolder(CarinfoCardBinding mBinding) {
-            super(mBinding.getRoot());
-            this.mBinding = mBinding;
+        public ViewHolder(View view,CarinfoCardBinding mBinding) {
+
+            super(view);
+
             carImg = mBinding.carImg;
             carName = mBinding.carName;
             carPrice = mBinding.carPrice;

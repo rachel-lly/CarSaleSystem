@@ -56,8 +56,8 @@ public class CustomerListFragment extends Fragment {
         customers.add(new Customer("111","林利莹","女","23","3415425235"));
         customers.add(new Customer("111","林利莹","女","23","3415425235"));
         customers.add(new Customer("111","林利莹","女","23","3415425235"));
-        CustomerListAdapter customerListAdapter = new CustomerListAdapter(this.getContext(),customers);
-        mBinding.recycleview.setAdapter(customerListAdapter);
+
+        mBinding.recycleview.setAdapter(new CustomerListAdapter(this.getContext(),customers));
         mBinding.recycleview.setLayoutManager(new GridLayoutManager(this.getContext(),1));
 
 

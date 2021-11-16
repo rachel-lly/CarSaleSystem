@@ -2,11 +2,14 @@ package com.example.carsalesystem.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.carsalesystem.R;
 import com.example.carsalesystem.databinding.CustomerCardBinding;
 import com.example.carsalesystem.model.Customer;
 import java.util.List;
@@ -25,9 +28,10 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
     @NonNull
     @Override
     public CustomerListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.customer_card,parent,false);
         mBinding = CustomerCardBinding.inflate(LayoutInflater.from(context));
 
-        ViewHolder holder = new ViewHolder(mBinding);
+        ViewHolder holder = new ViewHolder(view,mBinding);
 
 
         return holder;
@@ -52,16 +56,13 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private CustomerCardBinding mBinding;
-
         private TextView customerName;
         private TextView customerSex;
         private TextView customerAge;
         private TextView customerPhone;
 
-        public ViewHolder(CustomerCardBinding mBinding) {
-            super(mBinding.getRoot());
-            this.mBinding = mBinding;
+        public ViewHolder(View view,CustomerCardBinding mBinding) {
+            super(view);
 
             customerName = mBinding.customerName;
             customerAge = mBinding.customerAge;
