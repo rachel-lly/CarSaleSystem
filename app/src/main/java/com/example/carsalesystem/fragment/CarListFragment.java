@@ -58,15 +58,15 @@ public class CarListFragment extends Fragment {
 
         mBinding = FragmentCarListBinding.inflate(LayoutInflater.from(this.getContext()));
 
-        cars.add(new Car("111","布加迪","200",16,11,
-                "http://img10.360buyimg.com/n0/jfs/t475/205/872540024/139773/c3d8a304/54924e2eNfcc12a5f.jpg",
-                "布加迪的车子就像是艺术品一般，它车辆的引擎全是由手工制造和调校，所有可以轻量化的零件都不放过，布加迪注重车辆的细节与平衡。"));
-        cars.add(new Car("111","布加迪","200",16,11,
-                "http://img10.360buyimg.com/n0/jfs/t475/205/872540024/139773/c3d8a304/54924e2eNfcc12a5f.jpg",
-                "布加迪的车子就像是艺术品一般，它车辆的引擎全是由手工制造和调校，所有可以轻量化的零件都不放过，布加迪注重车辆的细节与平衡。"));
-        cars.add(new Car("111","布加迪","200",16,11,
-                "http://img10.360buyimg.com/n0/jfs/t475/205/872540024/139773/c3d8a304/54924e2eNfcc12a5f.jpg",
-                "布加迪的车子就像是艺术品一般，它车辆的引擎全是由手工制造和调校，所有可以轻量化的零件都不放过，布加迪注重车辆的细节与平衡。"));
+//        cars.add(new Car("111","布加迪","200",16,11,
+//                "http://img10.360buyimg.com/n0/jfs/t475/205/872540024/139773/c3d8a304/54924e2eNfcc12a5f.jpg",
+//                "布加迪的车子就像是艺术品一般，它车辆的引擎全是由手工制造和调校，所有可以轻量化的零件都不放过，布加迪注重车辆的细节与平衡。"));
+//        cars.add(new Car("111","布加迪","200",16,11,
+//                "http://img10.360buyimg.com/n0/jfs/t475/205/872540024/139773/c3d8a304/54924e2eNfcc12a5f.jpg",
+//                "布加迪的车子就像是艺术品一般，它车辆的引擎全是由手工制造和调校，所有可以轻量化的零件都不放过，布加迪注重车辆的细节与平衡。"));
+//        cars.add(new Car("111","布加迪","200",16,11,
+//                "http://img10.360buyimg.com/n0/jfs/t475/205/872540024/139773/c3d8a304/54924e2eNfcc12a5f.jpg",
+//                "布加迪的车子就像是艺术品一般，它车辆的引擎全是由手工制造和调校，所有可以轻量化的零件都不放过，布加迪注重车辆的细节与平衡。"));
         CarListAdapter carListAdapter = new CarListAdapter(this.getContext(),cars);
         mBinding.recycleview.setAdapter(carListAdapter);
         mBinding.recycleview.setLayoutManager(new GridLayoutManager(this.getContext(),1));

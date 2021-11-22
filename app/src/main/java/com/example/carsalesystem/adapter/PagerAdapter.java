@@ -9,12 +9,10 @@ import java.util.List;
 
 public class PagerAdapter extends FragmentStateAdapter {
 
-    private FragmentActivity activity;
     private List<Fragment> fragments;
 
     public PagerAdapter(FragmentActivity activity,List<Fragment> fragments){
         super(activity);
-        this.activity = activity;
         this.fragments = fragments;
     }
 

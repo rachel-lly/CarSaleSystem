@@ -16,7 +16,7 @@ import java.util.List;
 
 public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapter.ViewHolder> {
 
-    private CustomerCardBinding mBinding;
+
     private List<Customer> customers;
     private Context context;
 
@@ -29,7 +29,7 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
     @Override
     public CustomerListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.customer_card,parent,false);
-        mBinding = CustomerCardBinding.inflate(LayoutInflater.from(context));
+        CustomerCardBinding mBinding = CustomerCardBinding.inflate(LayoutInflater.from(context));
 
         ViewHolder holder = new ViewHolder(view,mBinding);
 

@@ -2,19 +2,19 @@ package com.example.carsalesystem.model;
 
 public class Customer {
 
+    /**
+     * customer_id : c5086
+     * name : 李白
+     * sex : 男
+     * age : 45
+     * phone : 17753469982
+     */
+
     private String customer_id;
     private String name;
     private String sex;
-    private String age;
+    private int age;
     private String phone;
-
-    public Customer(String customer_id, String name, String sex, String age, String phone) {
-        this.customer_id = customer_id;
-        this.name = name;
-        this.sex = sex;
-        this.age = age;
-        this.phone = phone;
-    }
 
     public String getCustomer_id() {
         return customer_id;
@@ -40,11 +40,11 @@ public class Customer {
         this.sex = sex;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 

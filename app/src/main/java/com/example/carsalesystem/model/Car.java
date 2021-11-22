@@ -2,23 +2,32 @@ package com.example.carsalesystem.model;
 
 public class Car {
 
+    /**
+     * agency_id : 111
+     * car_id : s4389
+     * car_name : 布加迪
+     * price : 25
+     * count : 5
+     * sell_number : 1
+     * description : 布加迪的车子就像是艺术品一般，它车辆的引擎全是由手工制造和调校，所有可以轻量化的零件都不放过，布加迪注重车辆的细节与平衡。
+     * url : http://p0.ifengimg.com/pmop/2018/0319/44D5B117CDE99FCBFF08BD53FC77908873FEA74E_size410_w1080_h1920.jpeg
+     */
+
+    private String agency_id;
     private String car_id;
     private String car_name;
     private String price;
     private int count;
     private int sell_number;
-
+    private String description;
     private String url;
-    private String carDes;
 
-    public Car(String car_id, String car_name, String price, int count, int sell_number, String url, String carDes) {
-        this.car_id = car_id;
-        this.car_name = car_name;
-        this.price = price;
-        this.count = count;
-        this.sell_number = sell_number;
-        this.url = url;
-        this.carDes = carDes;
+    public String getAgency_id() {
+        return agency_id;
+    }
+
+    public void setAgency_id(String agency_id) {
+        this.agency_id = agency_id;
     }
 
     public String getCar_id() {
@@ -61,19 +70,19 @@ public class Car {
         this.sell_number = sell_number;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public String getUrl() {
         return url;
     }
 
     public void setUrl(String url) {
         this.url = url;
-    }
-
-    public String getCarDes() {
-        return carDes;
-    }
-
-    public void setCarDes(String carDes) {
-        this.carDes = carDes;
     }
 }

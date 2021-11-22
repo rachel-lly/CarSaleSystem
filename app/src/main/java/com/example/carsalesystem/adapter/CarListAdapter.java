@@ -16,7 +16,7 @@ import java.util.List;
 
 public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.ViewHolder> {
 
-    private CarinfoCardBinding mBinding;
+
     private Context context;
     private List<Car> carList;
 
@@ -30,7 +30,7 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.ViewHold
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.carinfo_card,parent,false);
-        mBinding = CarinfoCardBinding.inflate(LayoutInflater.from(context));
+        CarinfoCardBinding mBinding = CarinfoCardBinding.inflate(LayoutInflater.from(context));
         ViewHolder holder = new ViewHolder(view,mBinding);
 
 
@@ -42,7 +42,7 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.ViewHold
 
         Car car = carList.get(position);
 
-        holder.carDes.setText(car.getCarDes());
+        holder.carDes.setText(car.getDescription());
         Glide.with(context).load(car.getUrl()).into(holder.carImg);
         holder.carName.setText(car.getCar_name());
         holder.carNum.setText(String.valueOf(car.getCount()));
