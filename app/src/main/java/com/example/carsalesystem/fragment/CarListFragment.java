@@ -26,25 +26,18 @@ public class CarListFragment extends Fragment {
     private FragmentCarListBinding mBinding;
     private List<Car> cars = new ArrayList<>();
 
+    private static CarListFragment fragment;
+
     public CarListFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CarListFragment.
-     */
 
-    public static CarListFragment newInstance(String param1, String param2) {
-        CarListFragment fragment = new CarListFragment();
-//        Bundle args = new Bundle();
-//        args.putString(ARG_PARAM1, param1);
-//        args.putString(ARG_PARAM2, param2);
-//        fragment.setArguments(args);
+
+    public static CarListFragment newInstance() {
+        if(fragment==null){
+            fragment = new CarListFragment();
+        }
         return fragment;
     }
 

@@ -1,6 +1,6 @@
 package com.example.carsalesystem.model;
 
-class order {
+class Order {
 
     /**
      * order_id : o3006

@@ -1,6 +1,6 @@
 package com.example.carsalesystem.model;
 
-class user {
+class User {
 
     /**
      * id : u2003

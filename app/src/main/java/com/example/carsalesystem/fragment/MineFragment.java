@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.carsalesystem.controller.UserController;
 import com.example.carsalesystem.databinding.FragmentMineBinding;
 
 /**
@@ -19,29 +20,28 @@ public class MineFragment extends Fragment {
 
 
     private FragmentMineBinding mBinding;
+    private static MineFragment fragment;
+
 
     public MineFragment() {
 
     }
 
 
-    public static MineFragment newInstance(String param1, String param2) {
-        MineFragment fragment = new MineFragment();
-//        Bundle args = new Bundle();
-//        args.putString(ARG_PARAM1, param1);
-//        args.putString(ARG_PARAM2, param2);
-//        fragment.setArguments(args);
+    public static MineFragment newInstance() {
+        if(fragment==null){
+            fragment = new MineFragment();
+        }
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        if (getArguments() != null) {
-//            mParam1 = getArguments().getString(ARG_PARAM1);
-//            mParam2 = getArguments().getString(ARG_PARAM2);
-//        }
         mBinding = FragmentMineBinding.inflate(LayoutInflater.from(this.getContext()));
+
+
+
     }
 
     @Override

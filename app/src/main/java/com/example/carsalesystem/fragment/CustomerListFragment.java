@@ -27,17 +27,17 @@ public class CustomerListFragment extends Fragment {
 
     private List<Customer> customers = new ArrayList<>();
 
+    private static CustomerListFragment fragment;
+
     public CustomerListFragment() {
         // Required empty public constructor
     }
 
 
-    public static CustomerListFragment newInstance(String param1, String param2) {
-        CustomerListFragment fragment = new CustomerListFragment();
-//        Bundle args = new Bundle();
-//        args.putString(ARG_PARAM1, param1);
-//        args.putString(ARG_PARAM2, param2);
-//        fragment.setArguments(args);
+    public static CustomerListFragment newInstance() {
+        if(fragment==null){
+            fragment = new CustomerListFragment();
+        }
         return fragment;
     }
 
@@ -51,11 +51,11 @@ public class CustomerListFragment extends Fragment {
 
         mBinding = FragmentCustomerListBinding.inflate(LayoutInflater.from(this.getContext()));
 
-        customers.add(new Customer("111","林利莹","女","23","3415425235"));
-        customers.add(new Customer("111","林利莹","女","23","3415425235"));
-        customers.add(new Customer("111","林利莹","女","23","3415425235"));
-        customers.add(new Customer("111","林利莹","女","23","3415425235"));
-        customers.add(new Customer("111","林利莹","女","23","3415425235"));
+//        customers.add(new Customer("111","林利莹","女","23","3415425235"));
+//        customers.add(new Customer("111","林利莹","女","23","3415425235"));
+//        customers.add(new Customer("111","林利莹","女","23","3415425235"));
+//        customers.add(new Customer("111","林利莹","女","23","3415425235"));
+//        customers.add(new Customer("111","林利莹","女","23","3415425235"));
 
         mBinding.recycleview.setAdapter(new CustomerListAdapter(this.getContext(),customers));
         mBinding.recycleview.setLayoutManager(new GridLayoutManager(this.getContext(),1));

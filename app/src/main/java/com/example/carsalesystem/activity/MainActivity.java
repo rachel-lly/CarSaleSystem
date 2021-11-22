@@ -34,9 +34,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void initFragment() {
         List<Fragment> fragments = new ArrayList<>();
-        fragments.add(new CarListFragment());
-        fragments.add(new CustomerListFragment());
-        fragments.add(new MineFragment());
+        fragments.add(CarListFragment.newInstance());
+        fragments.add(CustomerListFragment.newInstance());
+        fragments.add(MineFragment.newInstance());
 
         PagerAdapter pagerAdapter = new PagerAdapter(this,fragments);
 
