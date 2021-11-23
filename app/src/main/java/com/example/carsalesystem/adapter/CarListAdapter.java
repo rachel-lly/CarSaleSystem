@@ -21,8 +21,11 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.ViewHold
     private List<Car> carList;
 
     public CarListAdapter(Context context, List<Car> carList) {
-
         this.context = context;
+        this.carList = carList;
+    }
+
+    public void setCarList(List<Car> carList) {
         this.carList = carList;
     }
 
@@ -30,8 +33,8 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.ViewHold
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.carinfo_card,parent,false);
-        CarinfoCardBinding mBinding = CarinfoCardBinding.inflate(LayoutInflater.from(context));
-        ViewHolder holder = new ViewHolder(view,mBinding);
+
+        ViewHolder holder = new ViewHolder(view);
 
 
         return holder;
@@ -66,16 +69,16 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.ViewHold
         private TextView carSoldNum;
         private TextView carDes;
 
-        public ViewHolder(View view,CarinfoCardBinding mBinding) {
+        public ViewHolder(View view) {
 
             super(view);
 
-            carImg = mBinding.carImg;
-            carName = mBinding.carName;
-            carPrice = mBinding.carPrice;
-            carNum = mBinding.carCnt;
-            carSoldNum = mBinding.carSoldCnt;
-            carDes = mBinding.carDes;
+            carImg = view.findViewById(R.id.car_img);
+            carName = view.findViewById(R.id.car_name);
+            carPrice = view.findViewById(R.id.car_price);
+            carNum = view.findViewById(R.id.car_cnt);
+            carSoldNum = view.findViewById(R.id.car_sold_cnt);
+            carDes = view.findViewById(R.id.car_des);
         }
         
     }

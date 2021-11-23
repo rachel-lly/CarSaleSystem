@@ -49,15 +49,15 @@ public class MainActivity extends AppCompatActivity {
                 switch (position){
                     case 0:
                         mBinding.homeToolbar.setTitle("汽车列表");
-                        mBinding.homeNavigationView.setId(R.id.item_car);
+                        mBinding.homeNavigationView.setSelectedItemId(R.id.item_car);
                         break;
                     case 1:
                         mBinding.homeToolbar.setTitle("顾客列表");
-                        mBinding.homeNavigationView.setId(R.id.item_customer);
+                        mBinding.homeNavigationView.setSelectedItemId(R.id.item_customer);
                         break;
                     case 2:
                         mBinding.homeToolbar.setTitle("我的");
-                        mBinding.homeNavigationView.setId(R.id.item_mine);
+                        mBinding.homeNavigationView.setSelectedItemId(R.id.item_mine);
                         break;
                 }
             }

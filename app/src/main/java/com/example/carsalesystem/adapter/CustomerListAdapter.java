@@ -29,9 +29,9 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
     @Override
     public CustomerListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.customer_card,parent,false);
-        CustomerCardBinding mBinding = CustomerCardBinding.inflate(LayoutInflater.from(context));
 
-        ViewHolder holder = new ViewHolder(view,mBinding);
+
+        ViewHolder holder = new ViewHolder(view);
 
 
         return holder;
@@ -61,13 +61,13 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
         private TextView customerAge;
         private TextView customerPhone;
 
-        public ViewHolder(View view,CustomerCardBinding mBinding) {
+        public ViewHolder(View view) {
             super(view);
 
-            customerName = mBinding.customerName;
-            customerAge = mBinding.customerAge;
-            customerPhone = mBinding.customerPhone;
-            customerSex = mBinding.customerSex;
+            customerName = view.findViewById(R.id.customer_name);
+            customerAge = view.findViewById(R.id.customer_age);
+            customerPhone = view.findViewById(R.id.customer_phone);
+            customerSex = view.findViewById(R.id.customer_sex);
         }
 
 

@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +14,13 @@ import android.view.ViewGroup;
 import com.example.carsalesystem.adapter.CarListAdapter;
 import com.example.carsalesystem.databinding.FragmentCarListBinding;
 import com.example.carsalesystem.model.Car;
+import com.example.carsalesystem.retrofit.DataManager;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +31,8 @@ public class CarListFragment extends Fragment {
 
     private FragmentCarListBinding mBinding;
     private List<Car> cars = new ArrayList<>();
+
+    private Handler mainHandler = new Handler(Looper.getMainLooper());
 
     private static CarListFragment fragment;
 
@@ -51,18 +59,20 @@ public class CarListFragment extends Fragment {
 
         mBinding = FragmentCarListBinding.inflate(LayoutInflater.from(this.getContext()));
 
-//        cars.add(new Car("111","布加迪","200",16,11,
-//                "http://img10.360buyimg.com/n0/jfs/t475/205/872540024/139773/c3d8a304/54924e2eNfcc12a5f.jpg",
-//                "布加迪的车子就像是艺术品一般，它车辆的引擎全是由手工制造和调校，所有可以轻量化的零件都不放过，布加迪注重车辆的细节与平衡。"));
-//        cars.add(new Car("111","布加迪","200",16,11,
-//                "http://img10.360buyimg.com/n0/jfs/t475/205/872540024/139773/c3d8a304/54924e2eNfcc12a5f.jpg",
-//                "布加迪的车子就像是艺术品一般，它车辆的引擎全是由手工制造和调校，所有可以轻量化的零件都不放过，布加迪注重车辆的细节与平衡。"));
-//        cars.add(new Car("111","布加迪","200",16,11,
-//                "http://img10.360buyimg.com/n0/jfs/t475/205/872540024/139773/c3d8a304/54924e2eNfcc12a5f.jpg",
-//                "布加迪的车子就像是艺术品一般，它车辆的引擎全是由手工制造和调校，所有可以轻量化的零件都不放过，布加迪注重车辆的细节与平衡。"));
         CarListAdapter carListAdapter = new CarListAdapter(this.getContext(),cars);
         mBinding.recycleview.setAdapter(carListAdapter);
         mBinding.recycleview.setLayoutManager(new GridLayoutManager(this.getContext(),1));
+
+
+        DataManager.getInstance().getCar("111")
+                .subscribeOn(Schedulers.io())
+                .observeOn(Schedulers.io())
+                .subscribe(cars -> mainHandler.post(()->{
+                    carListAdapter.setCarList(cars);
+                   carListAdapter.notifyDataSetChanged();
+                }));
+
+
 
 
     }
