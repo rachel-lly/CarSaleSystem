@@ -1,6 +1,7 @@
 package com.example.carsalesystem.retrofit;
 
 import com.example.carsalesystem.model.Car;
+import com.example.carsalesystem.model.Customer;
 
 import java.util.List;
 
@@ -24,5 +25,9 @@ public class DataManager {
 
     public Observable<List<Car>> getCar(String agencyId){
         return retrofitService.getCar(agencyId);
+    }
+
+    public  Observable<List<Customer>> getCustomer(){
+        return retrofitService.getCustomer();
     }
 }

@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +14,12 @@ import android.view.ViewGroup;
 import com.example.carsalesystem.adapter.CustomerListAdapter;
 import com.example.carsalesystem.databinding.FragmentCustomerListBinding;
 import com.example.carsalesystem.model.Customer;
+import com.example.carsalesystem.retrofit.DataManager;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,6 +33,8 @@ public class CustomerListFragment extends Fragment {
     private List<Customer> customers = new ArrayList<>();
 
     private static CustomerListFragment fragment;
+
+    private Handler mainHandler = new Handler(Looper.getMainLooper());
 
     public CustomerListFragment() {
         // Required empty public constructor
@@ -44,21 +51,25 @@ public class CustomerListFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        if (getArguments() != null) {
-//            mParam1 = getArguments().getString(ARG_PARAM1);
-//            mParam2 = getArguments().getString(ARG_PARAM2);
-//        }
+
 
         mBinding = FragmentCustomerListBinding.inflate(LayoutInflater.from(this.getContext()));
-
-//        customers.add(new Customer("111","林利莹","女","23","3415425235"));
-//        customers.add(new Customer("111","林利莹","女","23","3415425235"));
-//        customers.add(new Customer("111","林利莹","女","23","3415425235"));
-//        customers.add(new Customer("111","林利莹","女","23","3415425235"));
-//        customers.add(new Customer("111","林利莹","女","23","3415425235"));
-
-        mBinding.recycleview.setAdapter(new CustomerListAdapter(this.getContext(),customers));
+        CustomerListAdapter adapter = new CustomerListAdapter(this.getContext(),customers);
+        mBinding.recycleview.setAdapter(adapter);
         mBinding.recycleview.setLayoutManager(new GridLayoutManager(this.getContext(),1));
+
+
+
+
+        DataManager.getInstance().getCustomer()
+                .subscribeOn(Schedulers.io())
+                .observeOn(Schedulers.io())
+                .subscribe(customers ->{
+                    mainHandler.post(()->{
+                        adapter.setCustomers(customers);
+                        adapter.notifyDataSetChanged();
+                            });
+                });
 
 
     }

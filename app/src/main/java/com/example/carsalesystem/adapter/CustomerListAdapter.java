@@ -25,6 +25,10 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
         this.context = context;
     }
 
+    public void setCustomers(List<Customer> customers) {
+        this.customers = customers;
+    }
+
     @NonNull
     @Override
     public CustomerListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -43,7 +47,7 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
         Customer customer = customers.get(position);
 
         holder.customerSex.setText(customer.getSex());
-        holder.customerAge.setText(customer.getAge());
+        holder.customerAge.setText(String.valueOf(customer.getAge()));
         holder.customerName.setText(customer.getName());
         holder.customerPhone.setText(customer.getPhone());
 
