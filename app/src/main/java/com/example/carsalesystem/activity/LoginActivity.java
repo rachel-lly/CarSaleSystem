@@ -12,6 +12,7 @@ import com.example.carsalesystem.controller.UserController;
 import com.example.carsalesystem.databinding.ActivityLoginBinding;
 import com.example.carsalesystem.model.User;
 import com.example.carsalesystem.retrofit.DataManager;
+import com.example.carsalesystem.util.SPUtils;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
@@ -25,6 +26,14 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         mBinding = ActivityLoginBinding.inflate(LayoutInflater.from(this));
+
+        String userId = SPUtils.get("userId","null");
+        String userPassword = SPUtils.get("userPassword","null");
+        if(!userId.equals("null")){
+            mBinding.idEv.setText(userId);
+            mBinding.passwordEv.setText(userPassword);
+        }
+
 
 
         mBinding.loginButton.setOnClickListener(v -> {
@@ -56,6 +65,8 @@ public class LoginActivity extends AppCompatActivity {
 
                     String s = responseBody.string();
                     if(s.equals("登录成功")){
+                        SPUtils.put("userId",id);
+                        SPUtils.put("userPassword",password);
                         getUserMessage(id);
                         Toast.makeText(this,s,Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(this,MainActivity.class);
