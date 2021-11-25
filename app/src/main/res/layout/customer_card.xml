@@ -23,8 +23,9 @@
             >
 
             <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:id="@+id/customer_avatar"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:padding="5dp"
                 android:src="@drawable/avatar"
 
@@ -59,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginBottom="2dp"
+                android:layout_marginBottom="5dp"
                 >
 
                 <TextView
@@ -90,7 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginBottom="2dp"
+                android:layout_marginBottom="5dp"
                 >
 
                 <TextView

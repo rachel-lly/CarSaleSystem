@@ -1,6 +1,6 @@
 package com.example.carsalesystem.model;
 
-class User {
+public class User {
 
     /**
      * id : u2003
@@ -17,6 +17,15 @@ class User {
     private int age;
     private String agency_name;
     private String phone;
+
+    public User(String id, String username, String sex, int age, String agency_name, String phone) {
+        this.id = id;
+        this.username = username;
+        this.sex = sex;
+        this.age = age;
+        this.agency_name = agency_name;
+        this.phone = phone;
+    }
 
     public String getId() {
         return id;

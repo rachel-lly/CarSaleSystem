@@ -2,10 +2,14 @@ package com.example.carsalesystem.retrofit;
 
 import com.example.carsalesystem.model.Car;
 import com.example.carsalesystem.model.Customer;
+import com.example.carsalesystem.model.User;
 
 import java.util.List;
 
 import io.reactivex.Observable;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
+import retrofit2.http.Query;
 
 public class DataManager {
 
@@ -27,7 +31,15 @@ public class DataManager {
         return retrofitService.getCar(agencyId);
     }
 
-    public  Observable<List<Customer>> getCustomer(){
+    public Observable<List<Customer>> getCustomer(){
         return retrofitService.getCustomer();
+    }
+
+    public Observable<ResponseBody> login(String id, String password){
+        return retrofitService.login(id,password);
+    }
+
+    public Observable<User> getUser(String id){
+        return retrofitService.getUser(id);
     }
 }

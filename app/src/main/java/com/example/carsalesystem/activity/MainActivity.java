@@ -4,18 +4,27 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
+
 import com.example.carsalesystem.R;
 import com.example.carsalesystem.adapter.PagerAdapter;
+import com.example.carsalesystem.controller.UserController;
 import com.example.carsalesystem.databinding.ActivityMainBinding;
 import com.example.carsalesystem.fragment.CarListFragment;
 import com.example.carsalesystem.fragment.CustomerListFragment;
 import com.example.carsalesystem.fragment.MineFragment;
+import com.example.carsalesystem.retrofit.DataManager;
 import com.google.android.material.navigation.NavigationBarView;
 import java.util.ArrayList;
 import java.util.List;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +35,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         mBinding = ActivityMainBinding.inflate(LayoutInflater.from(this));
+
+
+
+
+
+
+
+
 
         initFragment();
 

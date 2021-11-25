@@ -4,11 +4,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.carsalesystem.R;
 import com.example.carsalesystem.databinding.CustomerCardBinding;
 import com.example.carsalesystem.model.Customer;
@@ -51,6 +53,12 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
         holder.customerName.setText(customer.getName());
         holder.customerPhone.setText(customer.getPhone());
 
+        if(customer.getSex().equals("女")){
+            Glide.with(context).load(R.drawable.avatar_girl).into(holder.customerAvatar);
+        }else{
+            Glide.with(context).load(R.drawable.avatar).into(holder.customerAvatar);
+        }
+
     }
 
     @Override
@@ -65,6 +73,8 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
         private TextView customerAge;
         private TextView customerPhone;
 
+        private ImageView customerAvatar;
+
         public ViewHolder(View view) {
             super(view);
 
@@ -72,6 +82,8 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
             customerAge = view.findViewById(R.id.customer_age);
             customerPhone = view.findViewById(R.id.customer_phone);
             customerSex = view.findViewById(R.id.customer_sex);
+
+            customerAvatar = view.findViewById(R.id.customer_avatar);
         }
 
 
