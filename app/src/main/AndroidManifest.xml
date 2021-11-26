@@ -7,28 +7,27 @@
 
     <application
         android:name=".application.MyApplication"
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".activity.CustomerDetailActivity"></activity>
+        <activity android:name=".activity.ChooseCustomerActivity"></activity>
+        <activity android:name=".activity.CustomerDetailActivity" />
         <activity android:name=".activity.OrderActivity" />
         <activity
             android:name=".activity.LoginActivity"
-            android:windowSoftInputMode="adjustPan" >
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity">
-
-        </activity>
+        <activity android:name=".activity.MainActivity"></activity>
     </application>
 
 </manifest>

@@ -60,6 +60,7 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
 
         Customer customer = customers.get(position);
 
+        holder.customerId.setText(customer.getCustomer_id());
         holder.customerSex.setText(customer.getSex());
         holder.customerAge.setText(String.valueOf(customer.getAge()));
         holder.customerName.setText(customer.getName());
@@ -81,6 +82,7 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView customerName;
+        private TextView customerId;
         private TextView customerSex;
         private TextView customerAge;
         private TextView customerPhone;
@@ -91,6 +93,7 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
             super(view);
 
             customerName = view.findViewById(R.id.customer_name);
+            customerId = view.findViewById(R.id.customer_id);
             customerAge = view.findViewById(R.id.customer_age);
             customerPhone = view.findViewById(R.id.customer_phone);
             customerSex = view.findViewById(R.id.customer_sex);

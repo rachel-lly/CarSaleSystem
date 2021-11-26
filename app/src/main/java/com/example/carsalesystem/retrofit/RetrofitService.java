@@ -16,7 +16,7 @@ import retrofit2.http.Query;
 interface RetrofitService {
 
     @GET("FindCar?")
-    Observable<List<Car>> getCar(@Query("agency_id")String agencyId);
+    Observable<List<Car>> getCarList(@Query("agency_id")String agencyId);
 
     @GET("FindCustomer")
     Observable<List<Customer>> getCustomer();
@@ -32,4 +32,8 @@ interface RetrofitService {
 
     @GET("SerOrders?")
     Observable<List<Order>> getOrders(@Query("customer_id")String customer_id);
+
+    @GET("GetCar?")
+    Observable<Car> getCar(@Query("car_id")String car_id);
+
 }

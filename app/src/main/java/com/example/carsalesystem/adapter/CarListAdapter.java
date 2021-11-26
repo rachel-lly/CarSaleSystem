@@ -1,6 +1,7 @@
 package com.example.carsalesystem.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.carsalesystem.R;
+import com.example.carsalesystem.activity.OrderActivity;
 import com.example.carsalesystem.databinding.CarinfoCardBinding;
 import com.example.carsalesystem.model.Car;
 import java.util.List;
@@ -36,6 +38,13 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.ViewHold
 
         ViewHolder holder = new ViewHolder(view);
 
+        holder.itemView.setOnClickListener(v->{
+            int position = holder.getAdapterPosition();
+            Car car = carList.get(position);
+            Intent intent = new Intent(context, OrderActivity.class);
+            intent.putExtra("car_id",car.getCar_id());
+            context.startActivity(intent);
+        });
 
         return holder;
     }

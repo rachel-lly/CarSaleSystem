@@ -48,7 +48,7 @@ public class MineFragment extends Fragment {
         mBinding = FragmentMineBinding.inflate(LayoutInflater.from(this.getContext()));
 
         User user = UserController.getsInstance().getUser();
-        Toast.makeText(this.getContext(),user.getUsername(),Toast.LENGTH_SHORT).show();
+
         mBinding.mineAge.setText(String.valueOf(user.getAge()));
         mBinding.mineId.setText(user.getId());
         mBinding.mineName.setText(user.getUsername());

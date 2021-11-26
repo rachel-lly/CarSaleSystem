@@ -66,7 +66,7 @@ public class CarListFragment extends Fragment {
 
 
         String agency_id = UserController.getsInstance().getUser().getAgency_id();
-        DataManager.getInstance().getCar(agency_id)
+        DataManager.getInstance().getCarList(agency_id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.io())
                 .subscribe(cars -> mainHandler.post(()->{

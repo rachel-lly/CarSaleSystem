@@ -51,11 +51,42 @@
 
             >
 
+            <LinearLayout
+                android:id="@+id/customer_id_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="5dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:text="序号"
+                    android:layout_gravity="center_vertical"
+                    />
+
+
+                <TextView
+                    android:id="@+id/customer_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:text="c5086"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="5dp"
+                    android:textColor="?android:attr/textColorPrimary"
+                    />
+
+            </LinearLayout>
+
 
 
 
             <LinearLayout
                 android:id="@+id/customer_sex_layout"
+                android:layout_below="@+id/customer_id_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"

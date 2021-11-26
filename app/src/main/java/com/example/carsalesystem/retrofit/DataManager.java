@@ -28,8 +28,8 @@ public class DataManager {
         return instance;
     }
 
-    public Observable<List<Car>> getCar(String agencyId){
-        return retrofitService.getCar(agencyId);
+    public Observable<List<Car>> getCarList(String agencyId){
+        return retrofitService.getCarList(agencyId);
     }
 
     public Observable<List<Customer>> getCustomer(){
@@ -50,5 +50,10 @@ public class DataManager {
 
     public Observable<List<Order>> getOrders(String customer_id){
         return retrofitService.getOrders(customer_id);
+    }
+
+
+    public Observable<Car> getCar(String carId){
+        return retrofitService.getCar(carId);
     }
 }
