@@ -25,4 +25,7 @@ interface RetrofitService {
 
     @GET("FindUser?")
     Observable<User> getUser(@Query("id")String id);
+
+    @GET("GetCustomer?")
+    Observable<Customer> getCustomer(@Query("customer_id")String customer_id);
 }

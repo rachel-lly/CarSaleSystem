@@ -23,10 +23,8 @@ public class UserController {
         return user;
     }
 
-    public void setUser(String id,String name,String sex,int age,String agency_name,String phone){
-        if(user==null){
-            user = new User(id,name,sex,age,agency_name,phone);
-        }
+    public void setUser(String agency_id,String id,String name,String sex,int age,String agency_name,String phone){
+        user = new User(agency_id,id,name,sex,age,agency_name,phone);
     }
 
 

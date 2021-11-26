@@ -19,6 +19,7 @@ import com.example.carsalesystem.retrofit.DataManager;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 /**
@@ -34,7 +35,7 @@ public class CustomerListFragment extends Fragment {
 
     private static CustomerListFragment fragment;
 
-    private Handler mainHandler = new Handler(Looper.getMainLooper());
+
 
     public CustomerListFragment() {
         // Required empty public constructor
@@ -63,12 +64,10 @@ public class CustomerListFragment extends Fragment {
 
         DataManager.getInstance().getCustomer()
                 .subscribeOn(Schedulers.io())
-                .observeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(customers ->{
-                    mainHandler.post(()->{
-                        adapter.setCustomers(customers);
-                        adapter.notifyDataSetChanged();
-                            });
+                    adapter.setCustomers(customers);
+                    adapter.notifyDataSetChanged();
                 });
 
 

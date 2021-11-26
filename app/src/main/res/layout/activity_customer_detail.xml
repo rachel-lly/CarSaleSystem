@@ -38,8 +38,8 @@
             <RelativeLayout
                 style="@style/layout_style"
                 android:background="@drawable/item_pressed_state"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 >
 
                 <TextView
@@ -64,8 +64,8 @@
             <RelativeLayout
                 style="@style/layout_style"
                 android:background="@drawable/item_pressed_state"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 >
 
                 <TextView
@@ -90,8 +90,8 @@
             <RelativeLayout
                 style="@style/layout_style"
                 android:background="@drawable/item_pressed_state"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 >
 
                 <TextView
@@ -118,8 +118,8 @@
             <RelativeLayout
                 style="@style/layout_style"
                 android:background="@drawable/item_pressed_state"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="10dp"
                 >
 
                 <TextView
@@ -139,11 +139,19 @@
 
     </com.google.android.material.card.MaterialCardView>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="订单信息"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"

@@ -42,4 +42,8 @@ public class DataManager {
     public Observable<User> getUser(String id){
         return retrofitService.getUser(id);
     }
+
+    public  Observable<Customer> getCustomer(String customer_id){
+        return retrofitService.getCustomer(customer_id);
+    }
 }

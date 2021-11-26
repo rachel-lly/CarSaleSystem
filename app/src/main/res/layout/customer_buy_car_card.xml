@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="10dp"
         >
 
         <RelativeLayout
@@ -30,6 +29,43 @@
             <TextView
                 android:id="@+id/buy_car_name"
                 android:text="特斯拉"
+                style="@style/linear_item_text_end"
+                />
+
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f4f4f4"
+            />
+
+        <RelativeLayout
+            style="@style/layout_style"
+            android:background="@drawable/item_pressed_state"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            >
+
+            <TextView
+                android:text="购买单价"
+                style="@style/linear_item_text_behind_icon"
+                />
+
+            <TextView
+                android:id="@+id/buy_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="35"
+                android:textSize="15sp"
+                android:layout_toStartOf="@+id/wan_text"
+                android:layout_marginEnd="2dp"
+                />
+
+            <TextView
+                android:id="@+id/wan_text"
+                android:text="万"
                 style="@style/linear_item_text_end"
                 />
 
@@ -88,6 +124,60 @@
                 />
 
         </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f4f4f4"
+            />
+
+        <RelativeLayout
+            style="@style/layout_style"
+            android:background="@drawable/item_pressed_state"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            >
+
+            <TextView
+                android:text="负责人员"
+                style="@style/linear_item_text_behind_icon"
+                />
+
+            <TextView
+                android:id="@+id/sell_man"
+                android:text="林利莹"
+                style="@style/linear_item_text_end"
+                />
+
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f4f4f4"
+            />
+
+        <RelativeLayout
+            style="@style/layout_style"
+            android:background="@drawable/item_pressed_state"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            >
+
+            <TextView
+                android:text="经销商"
+                style="@style/linear_item_text_behind_icon"
+                />
+
+            <TextView
+                android:id="@+id/agency_name"
+                android:text="广汇汽车"
+                style="@style/linear_item_text_end"
+                />
+
+        </RelativeLayout>
+
 
     </LinearLayout>
 

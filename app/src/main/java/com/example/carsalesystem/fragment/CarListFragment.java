@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.carsalesystem.adapter.CarListAdapter;
+import com.example.carsalesystem.controller.UserController;
 import com.example.carsalesystem.databinding.FragmentCarListBinding;
 import com.example.carsalesystem.model.Car;
 import com.example.carsalesystem.retrofit.DataManager;
@@ -64,7 +65,8 @@ public class CarListFragment extends Fragment {
         mBinding.recycleview.setLayoutManager(new GridLayoutManager(this.getContext(),1));
 
 
-        DataManager.getInstance().getCar("111")
+        String agency_id = UserController.getsInstance().getUser().getAgency_id();
+        DataManager.getInstance().getCar(agency_id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.io())
                 .subscribe(cars -> mainHandler.post(()->{

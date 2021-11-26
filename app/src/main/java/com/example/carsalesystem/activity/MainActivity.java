@@ -80,22 +80,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        mBinding.homeNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.item_car:
-                        mBinding.homeViewPager.setCurrentItem(0);
-                        break;
-                    case R.id.item_customer:
-                        mBinding.homeViewPager.setCurrentItem(1);
-                        break;
-                    case R.id.item_mine:
-                        mBinding.homeViewPager.setCurrentItem(2);
-                        break;
-                }
-                return true;
+        mBinding.homeNavigationView.setOnItemSelectedListener(item -> {
+            switch (item.getItemId()){
+                case R.id.item_car:
+                    mBinding.homeViewPager.setCurrentItem(0);
+                    break;
+                case R.id.item_customer:
+                    mBinding.homeViewPager.setCurrentItem(1);
+                    break;
+                case R.id.item_mine:
+                    mBinding.homeViewPager.setCurrentItem(2);
+                    break;
             }
+            return true;
         });
     }
 }

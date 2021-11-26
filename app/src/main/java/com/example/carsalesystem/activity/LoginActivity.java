@@ -21,6 +21,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private ActivityLoginBinding mBinding;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +47,7 @@ public class LoginActivity extends AppCompatActivity {
                     .subscribe(user ->{
                         login(id,password);
                     },throwable -> {
+                        throwable.printStackTrace();
                         Toast.makeText(this,"不存在该账号",Toast.LENGTH_SHORT).show();
                     });
 
@@ -69,8 +71,11 @@ public class LoginActivity extends AppCompatActivity {
                         SPUtils.put("userPassword",password);
                         getUserMessage(id);
                         Toast.makeText(this,s,Toast.LENGTH_SHORT).show();
+
                         Intent intent = new Intent(this,MainActivity.class);
                         startActivity(intent);
+
+
                     }else{
                         Toast.makeText(this,"密码错误",Toast.LENGTH_SHORT).show();
                     }
@@ -83,9 +88,10 @@ public class LoginActivity extends AppCompatActivity {
     private void getUserMessage(String id) {
         DataManager.getInstance().getUser(id)
                 .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+                .observeOn(Schedulers.io())
                 .subscribe(user ->{
                     UserController.getsInstance().setUser(
+                            user.getAgency_id(),
                             user.getId(),
                             user.getUsername(),
                             user.getSex(),

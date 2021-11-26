@@ -3,6 +3,7 @@ package com.example.carsalesystem.model;
 public class User {
 
     /**
+     * agency_id : 222
      * id : u2003
      * username : 林利莹
      * sex : 女
@@ -11,6 +12,7 @@ public class User {
      * phone : 18932792019
      */
 
+    private String agency_id;
     private String id;
     private String username;
     private String sex;
@@ -18,13 +20,22 @@ public class User {
     private String agency_name;
     private String phone;
 
-    public User(String id, String username, String sex, int age, String agency_name, String phone) {
+    public User(String agency_id, String id, String username, String sex, int age, String agency_name, String phone) {
+        this.agency_id = agency_id;
         this.id = id;
         this.username = username;
         this.sex = sex;
         this.age = age;
         this.agency_name = agency_name;
         this.phone = phone;
+    }
+
+    public String getAgency_id() {
+        return agency_id;
+    }
+
+    public void setAgency_id(String agency_id) {
+        this.agency_id = agency_id;
     }
 
     public String getId() {
