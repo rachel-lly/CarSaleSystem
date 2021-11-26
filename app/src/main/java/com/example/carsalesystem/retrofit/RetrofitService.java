@@ -2,6 +2,7 @@ package com.example.carsalesystem.retrofit;
 
 import com.example.carsalesystem.model.Car;
 import com.example.carsalesystem.model.Customer;
+import com.example.carsalesystem.model.Order;
 import com.example.carsalesystem.model.User;
 
 import java.util.List;
@@ -28,4 +29,7 @@ interface RetrofitService {
 
     @GET("GetCustomer?")
     Observable<Customer> getCustomer(@Query("customer_id")String customer_id);
+
+    @GET("SerOrders?")
+    Observable<List<Order>> getOrders(@Query("customer_id")String customer_id);
 }

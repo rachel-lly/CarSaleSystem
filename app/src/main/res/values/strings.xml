@@ -28,6 +28,13 @@
         <item name="paddingEnd">10dp</item>
     </style>
 
+    <style name="layout_style_5">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="paddingStart">5dp</item>
+        <item name="paddingEnd">5dp</item>
+    </style>
+
     <style name="linear_item_icon">
         <item name="android:layout_width">20dp</item>
         <item name="android:layout_height">20dp</item>

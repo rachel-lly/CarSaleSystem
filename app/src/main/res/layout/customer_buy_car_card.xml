@@ -15,7 +15,7 @@
         >
 
         <RelativeLayout
-            style="@style/layout_style"
+            style="@style/layout_style_5"
             android:background="@drawable/item_pressed_state"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
@@ -42,7 +42,7 @@
             />
 
         <RelativeLayout
-            style="@style/layout_style"
+            style="@style/layout_style_5"
             android:background="@drawable/item_pressed_state"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
@@ -79,7 +79,7 @@
             />
 
         <RelativeLayout
-            style="@style/layout_style"
+            style="@style/layout_style_5"
             android:background="@drawable/item_pressed_state"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
@@ -106,7 +106,7 @@
             />
 
         <RelativeLayout
-            style="@style/layout_style"
+            style="@style/layout_style_5"
             android:background="@drawable/item_pressed_state"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
@@ -132,7 +132,7 @@
             />
 
         <RelativeLayout
-            style="@style/layout_style"
+            style="@style/layout_style_5"
             android:background="@drawable/item_pressed_state"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
@@ -159,7 +159,7 @@
             />
 
         <RelativeLayout
-            style="@style/layout_style"
+            style="@style/layout_style_5"
             android:background="@drawable/item_pressed_state"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
