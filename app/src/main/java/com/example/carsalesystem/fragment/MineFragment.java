@@ -16,7 +16,12 @@ import com.example.carsalesystem.R;
 import com.example.carsalesystem.activity.LoginActivity;
 import com.example.carsalesystem.controller.UserController;
 import com.example.carsalesystem.databinding.FragmentMineBinding;
+import com.example.carsalesystem.model.MessageEvent;
 import com.example.carsalesystem.model.User;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,9 +51,20 @@ public class MineFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mBinding = FragmentMineBinding.inflate(LayoutInflater.from(this.getContext()));
+        initUserMsg();
 
+
+
+        mBinding.loginoutLayout.setOnClickListener(v->{
+            Intent intent = new Intent(this.getContext(),LoginActivity.class);
+            intent.putExtra("login","again");
+            startActivity(intent);
+        });
+
+    }
+
+    private void initUserMsg() {
         User user = UserController.getsInstance().getUser();
-
         mBinding.mineAge.setText(String.valueOf(user.getAge()));
         mBinding.mineId.setText(user.getId());
         mBinding.mineName.setText(user.getUsername());
@@ -61,14 +77,30 @@ public class MineFragment extends Fragment {
         }else{
             Glide.with(this.getContext()).load(R.drawable.customer_avatar_boy).into(mBinding.mineAvater);
         }
-
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+        EventBus.getDefault().register(this);
         return mBinding.getRoot();
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(MessageEvent messageEvent){
+        String msg = messageEvent.getMsg();
+        switch (msg){
+            case "login":{
+
+                initUserMsg();
+            }
+        }
+    }
+
 }

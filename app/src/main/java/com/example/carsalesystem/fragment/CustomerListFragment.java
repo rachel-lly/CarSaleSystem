@@ -14,7 +14,12 @@ import android.view.ViewGroup;
 import com.example.carsalesystem.adapter.CustomerListAdapter;
 import com.example.carsalesystem.databinding.FragmentCustomerListBinding;
 import com.example.carsalesystem.model.Customer;
+import com.example.carsalesystem.model.MessageEvent;
 import com.example.carsalesystem.retrofit.DataManager;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +40,7 @@ public class CustomerListFragment extends Fragment {
 
     private static CustomerListFragment fragment;
 
-
+    private  CustomerListAdapter adapter;
 
     public CustomerListFragment() {
         // Required empty public constructor
@@ -55,12 +60,36 @@ public class CustomerListFragment extends Fragment {
 
 
         mBinding = FragmentCustomerListBinding.inflate(LayoutInflater.from(this.getContext()));
-        CustomerListAdapter adapter = new CustomerListAdapter(this.getContext(),customers);
+        adapter = new CustomerListAdapter(this.getContext(),customers);
         mBinding.recycleview.setAdapter(adapter);
         mBinding.recycleview.setLayoutManager(new GridLayoutManager(this.getContext(),1));
+        initCustomers();
+    }
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        EventBus.getDefault().register(this);
+        return mBinding.getRoot();
+    }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(MessageEvent messageEvent){
+        String msg = messageEvent.getMsg();
+        switch (msg){
+            case "login":{
+                initCustomers();
+            }
+        }
+    }
+
+    private void initCustomers() {
 
         DataManager.getInstance().getCustomer()
                 .subscribeOn(Schedulers.io())
@@ -70,13 +99,5 @@ public class CustomerListFragment extends Fragment {
                     adapter.notifyDataSetChanged();
                 });
 
-
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
-        return mBinding.getRoot();
     }
 }

@@ -15,7 +15,12 @@ import com.example.carsalesystem.adapter.CarListAdapter;
 import com.example.carsalesystem.controller.UserController;
 import com.example.carsalesystem.databinding.FragmentCarListBinding;
 import com.example.carsalesystem.model.Car;
+import com.example.carsalesystem.model.MessageEvent;
 import com.example.carsalesystem.retrofit.DataManager;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +41,8 @@ public class CarListFragment extends Fragment {
     private Handler mainHandler = new Handler(Looper.getMainLooper());
 
     private static CarListFragment fragment;
+
+    private CarListAdapter carListAdapter;
 
     public CarListFragment() {
         // Required empty public constructor
@@ -60,19 +67,12 @@ public class CarListFragment extends Fragment {
 
         mBinding = FragmentCarListBinding.inflate(LayoutInflater.from(this.getContext()));
 
-        CarListAdapter carListAdapter = new CarListAdapter(this.getContext(),cars);
+        carListAdapter = new CarListAdapter(this.getContext(),cars);
         mBinding.recycleview.setAdapter(carListAdapter);
         mBinding.recycleview.setLayoutManager(new GridLayoutManager(this.getContext(),1));
 
 
-        String agency_id = UserController.getsInstance().getUser().getAgency_id();
-        DataManager.getInstance().getCarList(agency_id)
-                .subscribeOn(Schedulers.io())
-                .observeOn(Schedulers.io())
-                .subscribe(cars -> mainHandler.post(()->{
-                    carListAdapter.setCarList(cars);
-                   carListAdapter.notifyDataSetChanged();
-                }));
+        initCarList();
 
 
 
@@ -82,7 +82,35 @@ public class CarListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+        EventBus.getDefault().register(this);
         return mBinding.getRoot();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(MessageEvent messageEvent){
+        String msg = messageEvent.getMsg();
+        switch (msg){
+            case "login":{
+                initCarList();
+            }
+        }
+    }
+
+    private void initCarList() {
+        String agency_id = UserController.getsInstance().getUser().getAgency_id();
+        DataManager.getInstance().getCarList(agency_id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(Schedulers.io())
+                .subscribe(cars -> mainHandler.post(()->{
+                    carListAdapter.setCarList(cars);
+                    carListAdapter.notifyDataSetChanged();
+                }));
     }
 }

@@ -184,4 +184,25 @@
 
     </LinearLayout>
 
+    <RelativeLayout
+        android:id="@+id/loginout_layout"
+        style="@style/layout_style"
+        android:background="@drawable/item_pressed_state"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:layout_below="@+id/mine_msg_layout"
+        android:layout_marginTop="30dp"
+        >
+
+        <TextView
+            android:text="退出登录"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="15sp"
+            android:layout_centerHorizontal="true"
+            />
+
+    </RelativeLayout>
+
+
 </RelativeLayout>
