@@ -74,4 +74,8 @@ public class DataManager {
             String phone){
         return  retrofitService.addCustomer(name, sex, age, phone);
     }
+
+    public Observable<List<Order>> getOrderList(String agencyId){
+        return retrofitService.getOrderList(agencyId);
+    }
 }

@@ -18,6 +18,7 @@ import com.example.carsalesystem.databinding.ActivityMainBinding;
 import com.example.carsalesystem.fragment.CarListFragment;
 import com.example.carsalesystem.fragment.CustomerListFragment;
 import com.example.carsalesystem.fragment.MineFragment;
+import com.example.carsalesystem.fragment.OrderListFragment;
 import com.example.carsalesystem.retrofit.DataManager;
 import com.google.android.material.navigation.NavigationBarView;
 import java.util.ArrayList;
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         List<Fragment> fragments = new ArrayList<>();
         fragments.add(CarListFragment.newInstance());
         fragments.add(CustomerListFragment.newInstance());
+        fragments.add(OrderListFragment.newInstance());
         fragments.add(MineFragment.newInstance());
 
         PagerAdapter pagerAdapter = new PagerAdapter(this,fragments);
@@ -73,6 +75,10 @@ public class MainActivity extends AppCompatActivity {
                         mBinding.homeNavigationView.setSelectedItemId(R.id.item_customer);
                         break;
                     case 2:
+                        mBinding.homeToolbar.setTitle("订单列表");
+                        mBinding.homeNavigationView.setSelectedItemId(R.id.item_order_list);
+                        break;
+                    case 3:
                         mBinding.homeToolbar.setTitle("我的");
                         mBinding.homeNavigationView.setSelectedItemId(R.id.item_mine);
                         break;
@@ -88,8 +94,11 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.item_customer:
                     mBinding.homeViewPager.setCurrentItem(1);
                     break;
-                case R.id.item_mine:
+                case R.id.item_order_list:
                     mBinding.homeViewPager.setCurrentItem(2);
+                    break;
+                case R.id.item_mine:
+                    mBinding.homeViewPager.setCurrentItem(3);
                     break;
             }
             return true;

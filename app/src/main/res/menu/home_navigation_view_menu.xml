@@ -15,6 +15,11 @@
         />
 
     <item
+        android:id="@+id/item_order_list"
+        android:title="order"
+        android:icon="@mipmap/order"
+        />
+    <item
         android:id="@+id/item_mine"
         android:title="mine"
         android:icon="@mipmap/mine"
