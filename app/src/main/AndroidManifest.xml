@@ -15,7 +15,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".activity.ChooseCustomerActivity"></activity>
+        <activity android:name=".activity.AddCustomerActivity"></activity>
+        <activity android:name=".activity.ChooseCustomerActivity" />
         <activity android:name=".activity.CustomerDetailActivity" />
         <activity android:name=".activity.OrderActivity" />
         <activity
@@ -27,7 +28,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity"></activity>
+        <activity android:name=".activity.MainActivity" />
     </application>
 
 </manifest>

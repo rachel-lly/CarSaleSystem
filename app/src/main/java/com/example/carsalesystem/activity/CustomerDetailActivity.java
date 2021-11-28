@@ -26,6 +26,7 @@ public class CustomerDetailActivity extends AppCompatActivity {
     private Customer customer;
 
     private ArrayList<Order> orders = new ArrayList<>();
+    private OrderListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,17 +53,11 @@ public class CustomerDetailActivity extends AppCompatActivity {
     }
 
     private void getCustomerOrderList(String customer_id) {
-        OrderListAdapter adapter = new OrderListAdapter(this,orders);
+        adapter = new OrderListAdapter(this,orders);
         mBinding.recycleview.setAdapter(adapter);
         mBinding.recycleview.setLayoutManager(new GridLayoutManager(this,1));
 
-        DataManager.getInstance().getOrders(customer_id)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(orders -> {
-                    adapter.setOrders(orders);
-                    adapter.notifyDataSetChanged();
-                });
+        refreshOrders();
     }
 
     private void initCustomer(Customer customer) {
@@ -71,5 +66,15 @@ public class CustomerDetailActivity extends AppCompatActivity {
         mBinding.customerAge.setText(String.valueOf(customer.getAge()));
         mBinding.customerSex.setText(customer.getSex());
         mBinding.customerPhone.setText(customer.getPhone());
+    }
+
+    public void refreshOrders(){
+        DataManager.getInstance().getOrders(customer.getCustomer_id())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(orders -> {
+                    adapter.setOrders(orders);
+                    adapter.notifyDataSetChanged();
+                });
     }
 }

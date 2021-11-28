@@ -60,10 +60,7 @@ public class CarListFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        if (getArguments() != null) {
-//            mParam1 = getArguments().getString(ARG_PARAM1);
-//            mParam2 = getArguments().getString(ARG_PARAM2);
-//        }
+
 
         mBinding = FragmentCarListBinding.inflate(LayoutInflater.from(this.getContext()));
 
@@ -98,6 +95,12 @@ public class CarListFragment extends Fragment {
         String msg = messageEvent.getMsg();
         switch (msg){
             case "login":{
+                initCarList();
+            }
+            case "addCustomer":{
+                initCarList();
+            }
+            case "addOrder":{
                 initCarList();
             }
         }

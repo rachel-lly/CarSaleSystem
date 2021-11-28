@@ -1,16 +1,23 @@
 package com.example.carsalesystem.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.os.Handler;
 import android.os.Looper;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.carsalesystem.R;
+import com.example.carsalesystem.activity.AddCustomerActivity;
 import com.example.carsalesystem.adapter.CustomerListAdapter;
 import com.example.carsalesystem.databinding.FragmentCustomerListBinding;
 import com.example.carsalesystem.model.Customer;
@@ -60,10 +67,15 @@ public class CustomerListFragment extends Fragment {
 
 
         mBinding = FragmentCustomerListBinding.inflate(LayoutInflater.from(this.getContext()));
+
+
+        setHasOptionsMenu(true);
+
+
         adapter = new CustomerListAdapter(this.getContext(),customers);
         mBinding.recycleview.setAdapter(adapter);
         mBinding.recycleview.setLayoutManager(new GridLayoutManager(this.getContext(),1));
-        initCustomers();
+        refreshCustomers();
     }
 
     @Override
@@ -79,17 +91,38 @@ public class CustomerListFragment extends Fragment {
         EventBus.getDefault().unregister(this);
     }
 
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.customer_list_toolbar,menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        super.onOptionsItemSelected(item);
+        switch (item.getItemId()){
+            case R.id.add_customer :{
+                Intent intent = new Intent(this.getContext(), AddCustomerActivity.class);
+                startActivity(intent);
+            }
+        }
+        return true;
+    }
+
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(MessageEvent messageEvent){
         String msg = messageEvent.getMsg();
         switch (msg){
             case "login":{
-                initCustomers();
+                refreshCustomers();
+            }
+            case "addCustomer":{
+                refreshCustomers();
             }
         }
     }
 
-    private void initCustomers() {
+    private void refreshCustomers() {
 
         DataManager.getInstance().getCustomer()
                 .subscribeOn(Schedulers.io())
@@ -100,4 +133,6 @@ public class CustomerListFragment extends Fragment {
                 });
 
     }
+
+
 }

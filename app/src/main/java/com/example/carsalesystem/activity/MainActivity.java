@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         mBinding = ActivityMainBinding.inflate(LayoutInflater.from(this));
 
 
-
+        setSupportActionBar(mBinding.homeToolbar);
 
 
 

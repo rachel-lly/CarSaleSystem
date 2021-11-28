@@ -44,4 +44,13 @@ interface RetrofitService {
             @Query("order_time")String order_time,
             @Query("sellman_id")String sellman_id);
 
+    @GET("AddCustomer?")
+    Observable<ResponseBody> addCustomer(
+            @Query("name")String name,
+            @Query("sex")String sex,
+            @Query("age")String age,
+            @Query("phone")String phone);
+
+
+
 }

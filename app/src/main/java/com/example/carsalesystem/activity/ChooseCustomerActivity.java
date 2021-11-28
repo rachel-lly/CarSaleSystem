@@ -11,7 +11,12 @@ import com.example.carsalesystem.R;
 import com.example.carsalesystem.adapter.ChooseCustomerListAdapter;
 import com.example.carsalesystem.databinding.ActivityChooseCustomerBinding;
 import com.example.carsalesystem.model.Customer;
+import com.example.carsalesystem.model.MessageEvent;
 import com.example.carsalesystem.retrofit.DataManager;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +39,7 @@ public class ChooseCustomerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EventBus.getDefault().register(this);
         mBinding = ActivityChooseCustomerBinding.inflate(LayoutInflater.from(this));
 
         mBinding.chooseCustomerToolbar.setNavigationIcon(R.mipmap.back);
@@ -53,12 +59,12 @@ public class ChooseCustomerActivity extends AppCompatActivity {
         adapter = new ChooseCustomerListAdapter(this,customers,onClickListener);
         mBinding.recycleview.setAdapter(adapter);
         mBinding.recycleview.setLayoutManager(new GridLayoutManager(this,1));
-        initCustomers();
+        refreshCustomers();
 
         setContentView(mBinding.getRoot());
     }
 
-    private void initCustomers() {
+    private void refreshCustomers() {
 
         DataManager.getInstance().getCustomer()
                 .subscribeOn(Schedulers.io())
@@ -70,4 +76,22 @@ public class ChooseCustomerActivity extends AppCompatActivity {
 
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(MessageEvent messageEvent){
+        String msg = messageEvent.getMsg();
+        switch (msg){
+            case "login":{
+                refreshCustomers();
+            }
+            case "addCustomer":{
+                refreshCustomers();
+            }
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
 }

@@ -12,8 +12,11 @@ import com.example.carsalesystem.R;
 import com.example.carsalesystem.controller.UserController;
 import com.example.carsalesystem.databinding.ActivityOrderBinding;
 import com.example.carsalesystem.model.Car;
+import com.example.carsalesystem.model.MessageEvent;
 import com.example.carsalesystem.model.User;
 import com.example.carsalesystem.retrofit.DataManager;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.text.SimpleDateFormat;
 import java.util.Locale;
@@ -35,7 +38,7 @@ public class OrderActivity extends AppCompatActivity {
     private String lastChoose = null;
     private String chooseCustomerId = null;
 
-    private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-EE", Locale.CHINESE);
+    private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINESE);
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -135,6 +138,7 @@ public class OrderActivity extends AppCompatActivity {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(responseBody ->{
+                    EventBus.getDefault().post(new MessageEvent("addOrder"));
                     Toast.makeText(this,responseBody.string(),Toast.LENGTH_LONG).show();
                 },throwable -> {
                     throwable.printStackTrace();

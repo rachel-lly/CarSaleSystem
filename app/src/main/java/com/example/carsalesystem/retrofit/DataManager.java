@@ -66,4 +66,12 @@ public class DataManager {
             String sellman_id){
         return retrofitService.addOrder(customer_id, car_id, count, order_time, sellman_id);
     }
+
+    public Observable<ResponseBody> addCustomer(
+            String name,
+            String sex,
+            String age,
+            String phone){
+        return  retrofitService.addCustomer(name, sex, age, phone);
+    }
 }
