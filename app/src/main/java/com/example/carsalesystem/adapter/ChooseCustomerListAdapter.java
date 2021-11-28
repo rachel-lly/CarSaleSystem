@@ -1,30 +1,34 @@
 package com.example.carsalesystem.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
 import com.example.carsalesystem.R;
-import com.example.carsalesystem.activity.CustomerDetailActivity;
 import com.example.carsalesystem.model.Customer;
+
 import java.util.List;
 
-public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapter.ViewHolder> {
+public class ChooseCustomerListAdapter extends RecyclerView.Adapter<ChooseCustomerListAdapter.ViewHolder> {
 
 
     private List<Customer> customers;
     private Context context;
+    private ClickListener mClickListener;
 
-    public CustomerListAdapter(Context context, List<Customer> customers) {
+    public ChooseCustomerListAdapter( Context context, List<Customer> customers,ClickListener mClickListener) {
         this.customers = customers;
         this.context = context;
+        this.mClickListener = mClickListener;
     }
+
 
     public void setCustomers(List<Customer> customers) {
         this.customers = customers;
@@ -32,20 +36,18 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
 
     @NonNull
     @Override
-    public CustomerListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ChooseCustomerListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.customer_card,parent,false);
 
 
-        ViewHolder holder = new ViewHolder(view);
+        ChooseCustomerListAdapter.ViewHolder holder = new ChooseCustomerListAdapter.ViewHolder(view);
 
         holder.itemView.setOnClickListener(v -> {
 
             int position = holder.getAdapterPosition();
             Customer customer = customers.get(position);
+            mClickListener.onClick(customer.getCustomer_id(),customer.getName());
 
-            Intent intent = new Intent(context, CustomerDetailActivity.class);
-            intent.putExtra("Customer_id",customer.getCustomer_id());
-            context.startActivity(intent);
         });
 
 
@@ -53,7 +55,7 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CustomerListAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ChooseCustomerListAdapter.ViewHolder holder, int position) {
 
         Customer customer = customers.get(position);
 
@@ -99,5 +101,9 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
         }
 
 
+    }
+
+    public interface ClickListener{
+        void onClick(String customerId,String customerName);
     }
 }

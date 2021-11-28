@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f3f3f3"
+    android:orientation="vertical"
     tools:context=".activity.ChooseCustomerActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/choose_customer_toolbar"
+        android:layout_width="match_parent"
+        app:title="选择顾客"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/colorPrimaryDark"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/OverflowMenuStyle"
+        app:layout_scrollFlags="scroll|enterAlways|snap"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleview"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
@@ -18,4 +31,4 @@
         android:layout_marginBottom="10dp"
         />
 
-</FrameLayout>
+</LinearLayout>

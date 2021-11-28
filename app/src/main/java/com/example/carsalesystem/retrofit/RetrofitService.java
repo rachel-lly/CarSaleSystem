@@ -8,7 +8,6 @@ import com.example.carsalesystem.model.User;
 import java.util.List;
 
 import io.reactivex.Observable;
-import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -35,5 +34,14 @@ interface RetrofitService {
 
     @GET("GetCar?")
     Observable<Car> getCar(@Query("car_id")String car_id);
+
+
+    @GET("AddOrders?")
+    Observable<ResponseBody> addOrder(
+            @Query("customer_id")String customer_id,
+            @Query("car_id")String car_id,
+            @Query("count")int count,
+            @Query("order_time")String order_time,
+            @Query("sellman_id")String sellman_id);
 
 }

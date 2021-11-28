@@ -10,6 +10,7 @@ import java.util.List;
 import io.reactivex.Observable;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
+import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public class DataManager {
@@ -55,5 +56,14 @@ public class DataManager {
 
     public Observable<Car> getCar(String carId){
         return retrofitService.getCar(carId);
+    }
+
+    public Observable<ResponseBody> addOrder(
+            String customer_id,
+            String car_id,
+            int count,
+            String order_time,
+            String sellman_id){
+        return retrofitService.addOrder(customer_id, car_id, count, order_time, sellman_id);
     }
 }
