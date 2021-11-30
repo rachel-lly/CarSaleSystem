@@ -7,15 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
 import com.example.carsalesystem.R;
 import com.example.carsalesystem.activity.OrderActivity;
 import com.example.carsalesystem.controller.UserController;
-import com.example.carsalesystem.databinding.CarinfoCardBinding;
 import com.example.carsalesystem.model.Car;
-import com.example.carsalesystem.model.User;
 
 import java.util.List;
 

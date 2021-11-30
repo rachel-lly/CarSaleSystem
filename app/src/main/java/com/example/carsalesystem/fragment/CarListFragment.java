@@ -1,22 +1,20 @@
 package com.example.carsalesystem.fragment;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-
 import android.os.Handler;
 import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+
 import com.example.carsalesystem.adapter.CarListAdapter;
 import com.example.carsalesystem.controller.UserController;
 import com.example.carsalesystem.databinding.FragmentCarListBinding;
 import com.example.carsalesystem.model.Car;
 import com.example.carsalesystem.model.MessageEvent;
-import com.example.carsalesystem.model.User;
 import com.example.carsalesystem.retrofit.DataManager;
 
 import org.greenrobot.eventbus.EventBus;
@@ -26,7 +24,6 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 /**

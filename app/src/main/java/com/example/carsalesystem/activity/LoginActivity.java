@@ -1,17 +1,16 @@
 package com.example.carsalesystem.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.carsalesystem.controller.UserController;
 import com.example.carsalesystem.databinding.ActivityLoginBinding;
 import com.example.carsalesystem.model.MessageEvent;
-import com.example.carsalesystem.model.User;
 import com.example.carsalesystem.retrofit.DataManager;
 import com.example.carsalesystem.util.SPUtils;
 
@@ -34,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         mBinding = ActivityLoginBinding.inflate(LayoutInflater.from(this));
 
         mBinding.changeUserLogin.setOnClickListener(v->{
-            Toast.makeText(this,isUser+"--",Toast.LENGTH_SHORT).show();
+
             if(isUser){//当前是销售人员
                 //转为经销商
                 mBinding.passwordEv.setVisibility(View.GONE);

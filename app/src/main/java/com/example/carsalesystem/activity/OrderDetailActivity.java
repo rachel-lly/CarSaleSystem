@@ -1,11 +1,11 @@
 package com.example.carsalesystem.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.carsalesystem.R;
 import com.example.carsalesystem.databinding.ActivityOrderDetailBinding;
@@ -16,7 +16,6 @@ import org.greenrobot.eventbus.EventBus;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
-import okhttp3.ResponseBody;
 
 public class OrderDetailActivity extends AppCompatActivity {
 
