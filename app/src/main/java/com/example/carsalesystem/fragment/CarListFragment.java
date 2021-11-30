@@ -24,6 +24,7 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 /**
@@ -104,11 +105,13 @@ public class CarListFragment extends Fragment {
 
         DataManager.getInstance().getCarList(agency_id)
                 .subscribeOn(Schedulers.io())
-                .observeOn(Schedulers.io())
-                .subscribe(cars -> mainHandler.post(()->{
-                    carListAdapter.setCarList(cars);
-                    carListAdapter.notifyDataSetChanged();
-                }));
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(cars -> {
+                            carListAdapter.setCarList(cars);
+                            carListAdapter.notifyDataSetChanged();
+                        },
+                        throwable -> throwable.printStackTrace()
+                );
 
     }
 }

@@ -35,14 +35,6 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
     }
 
     public void setOrders(List<Order> orders) {
-        Collections.sort(orders, (o1, o2) -> {
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-
-            long time1 = Objects.requireNonNull(format.parse(o1.getOrder_time(), new ParsePosition(0))).getTime() / 1000;
-
-            long time2 = Objects.requireNonNull(format.parse(o2.getOrder_time(), new ParsePosition(0))).getTime() / 1000;
-            return (int)(time2 - time1);
-        });
         this.orders = orders;
     }
 

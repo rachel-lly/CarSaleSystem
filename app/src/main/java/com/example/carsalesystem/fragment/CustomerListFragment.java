@@ -126,7 +126,7 @@ public class CustomerListFragment extends Fragment {
                 .subscribe(customers ->{
                     adapter.setCustomers(customers);
                     adapter.notifyDataSetChanged();
-                });
+                },throwable -> throwable.printStackTrace());
 
     }
 

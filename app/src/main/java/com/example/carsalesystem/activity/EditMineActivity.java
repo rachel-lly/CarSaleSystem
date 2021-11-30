@@ -48,7 +48,7 @@ public class EditMineActivity extends AppCompatActivity {
                 .subscribe(user -> {
                     this.user = user;
                    initUser(user);
-                });
+                },throwable -> throwable.printStackTrace());
 
 
         mBinding.sexLayout.setOnClickListener(v->{

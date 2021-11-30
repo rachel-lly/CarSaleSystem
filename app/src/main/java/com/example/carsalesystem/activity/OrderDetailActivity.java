@@ -24,7 +24,7 @@ public class OrderDetailActivity extends AppCompatActivity {
 
     private ActivityOrderDetailBinding mBinding;
     private Order order;
-
+    private UserController userController = UserController.getsInstance();
 
 
     @Override
@@ -43,14 +43,7 @@ public class OrderDetailActivity extends AppCompatActivity {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(order -> {
                     initOrder(order);
-                });
-
-        if(UserController.getsInstance().isUser()){
-            mBinding.delete.setVisibility(View.VISIBLE);
-        }else{
-            mBinding.delete.setVisibility(View.GONE);
-        }
-
+                },throwable -> throwable.printStackTrace());
 
         mBinding.delete.setOnClickListener(v->{
             delOrder();
@@ -69,7 +62,7 @@ public class OrderDetailActivity extends AppCompatActivity {
                 .subscribe(responseBody -> {
                     EventBus.getDefault().post(new MessageEvent("delOrder"));
                     ToastUtil.toastShort(this,responseBody.string());
-                });
+                },throwable -> throwable.printStackTrace());
     }
 
     private void initOrder(Order order) {
@@ -84,5 +77,14 @@ public class OrderDetailActivity extends AppCompatActivity {
         mBinding.sellMan.setText(order.getSellman_name());
         mBinding.agencyName.setText(order.getAgency_name());
 
+        String id = userController.getUserId();
+        String sellId = order.getSellman_id();
+        ToastUtil.toastShort(this,id+"---"+sellId);
+
+        if(userController.isUser()&&userController.getUserId().equals(order.getSellman_id())){
+            mBinding.delete.setVisibility(View.VISIBLE);
+        }else{
+            mBinding.delete.setVisibility(View.GONE);
+        }
     }
 }

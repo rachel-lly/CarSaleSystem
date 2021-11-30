@@ -38,7 +38,7 @@ public class OrderActivity extends AppCompatActivity {
     private String lastChoose = null;
     private String chooseCustomerId = null;
 
-    private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINESE);
+    private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINESE);
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -75,7 +75,7 @@ public class OrderActivity extends AppCompatActivity {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(car -> {
                     initCar(car);
-                });
+                },throwable -> throwable.printStackTrace());
 
         mBinding.add.setOnClickListener(v->{
             nowCnt++;
@@ -101,11 +101,6 @@ public class OrderActivity extends AppCompatActivity {
 
 
         mBinding.sure.setOnClickListener(v->{
-//             "customer_id":   String,       //顾客id
-//    "car_id"  :   String,       //车辆id
-// "count"   :      int,       //购买数量
-//    "order_time": String,       //订单时间
-//    "sellman_id": String,     //销售人员id
 
             if(nowCnt==0){
                 if(max==0) ToastUtil.toastShort(this,"该车辆暂不支持售卖");

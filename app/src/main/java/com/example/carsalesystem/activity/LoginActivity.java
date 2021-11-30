@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
                             );
                             Intent intent = new Intent(this,MainActivity.class);
                             startActivity(intent);
-                        });
+                        },throwable -> throwable.printStackTrace());
 
             }
             mBinding.idEv.setText(userId);

@@ -96,6 +96,6 @@ public class OrderListFragment extends Fragment {
                 .subscribe(orders -> {
                     adapter.setOrders(orders);
                     adapter.notifyDataSetChanged();
-                });
+                },throwable -> throwable.printStackTrace());
     }
 }

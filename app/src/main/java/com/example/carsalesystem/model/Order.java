@@ -3,18 +3,21 @@ package com.example.carsalesystem.model;
 public class Order {
 
     /**
-     * order_id : o3006
-     * customer_id : c5097
-     * customer_name : 李清照
-     * car_id : s4392
-     * car_name : 雪佛兰5系
-     * price : 46
+     * agency_id : 111
+     * order_id : o5064
+     * customer_id : c5090
+     * customer_name : 鲁班七号
+     * car_id : s4397
+     * car_name : 本田
+     * price : 55
      * count : 1
-     * order_time : 2014-02-27
+     * order_time : 2021-11-30 21:30:12
      * sellman_name : 李远安
      * agency_name : 广汇汽车
+     * sellman_id : u2002
      */
 
+    private String agency_id;
     private String order_id;
     private String customer_id;
     private String customer_name;
@@ -25,6 +28,15 @@ public class Order {
     private String order_time;
     private String sellman_name;
     private String agency_name;
+    private String sellman_id;
+
+    public String getAgency_id() {
+        return agency_id;
+    }
+
+    public void setAgency_id(String agency_id) {
+        this.agency_id = agency_id;
+    }
 
     public String getOrder_id() {
         return order_id;
@@ -104,5 +116,13 @@ public class Order {
 
     public void setAgency_name(String agency_name) {
         this.agency_name = agency_name;
+    }
+
+    public String getSellman_id() {
+        return sellman_id;
+    }
+
+    public void setSellman_id(String sellman_id) {
+        this.sellman_id = sellman_id;
     }
 }

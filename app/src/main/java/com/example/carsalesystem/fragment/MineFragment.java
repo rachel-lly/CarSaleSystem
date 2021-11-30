@@ -171,7 +171,7 @@ public class MineFragment extends Fragment {
                                     user.getPhone()
                             );
                             initUserMsg();
-                        });
+                        },throwable -> throwable.printStackTrace());
                 break;
             }
         }

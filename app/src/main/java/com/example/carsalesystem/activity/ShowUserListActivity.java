@@ -46,7 +46,7 @@ public class ShowUserListActivity extends AppCompatActivity {
                 .subscribe(users ->{
                     adapter.setUsers(users);
                     adapter.notifyDataSetChanged();
-                });
+                },throwable -> throwable.printStackTrace());
 
         setContentView(mBinding.getRoot());
     }

@@ -46,7 +46,7 @@ public class CustomerDetailActivity extends AppCompatActivity {
                 .subscribe(customer -> {
                     initCustomer(customer);
                     getCustomerOrderList();
-                });
+                },throwable -> throwable.printStackTrace());
 
 
         setContentView(mBinding.getRoot());
@@ -75,6 +75,6 @@ public class CustomerDetailActivity extends AppCompatActivity {
                 .subscribe(orders -> {
                     adapter.setOrders(orders);
                     adapter.notifyDataSetChanged();
-                });
+                },throwable -> throwable.printStackTrace());
     }
 }
