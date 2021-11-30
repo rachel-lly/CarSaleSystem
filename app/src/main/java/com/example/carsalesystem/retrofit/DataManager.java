@@ -89,4 +89,12 @@ public class DataManager {
             String agency_id){
         return retrofitService.updateUser(id, name, sex, age, agency_name, phone, agency_id);
     }
+
+    public Observable<ResponseBody> delOrder(String order_id){
+        return retrofitService.delOrder(order_id);
+    }
+
+    public Observable<Order> getOrder(String order_id){
+        return retrofitService.getOrder(order_id);
+    }
 }

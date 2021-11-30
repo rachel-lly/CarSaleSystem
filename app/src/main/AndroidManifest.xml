@@ -15,7 +15,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".activity.EditMineActivity"></activity>
+        <activity android:name=".activity.OrderDetailActivity"></activity>
+        <activity android:name=".activity.EditMineActivity" />
         <activity android:name=".activity.AddCustomerActivity" />
         <activity android:name=".activity.ChooseCustomerActivity" />
         <activity android:name=".activity.CustomerDetailActivity" />

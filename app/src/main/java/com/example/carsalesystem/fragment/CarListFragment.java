@@ -92,18 +92,7 @@ public class CarListFragment extends Fragment {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(MessageEvent messageEvent){
-        String msg = messageEvent.getMsg();
-        switch (msg){
-            case "login":{
-                initCarList();
-            }
-            case "addCustomer":{
-                initCarList();
-            }
-            case "addOrder":{
-                initCarList();
-            }
-        }
+        initCarList();
     }
 
     private void initCarList() {

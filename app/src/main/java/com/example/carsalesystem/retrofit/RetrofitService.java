@@ -35,6 +35,9 @@ interface RetrofitService {
     @GET("SerOrders?")
     Observable<List<Order>> getOrders(@Query("customer_id")String customer_id);
 
+    @GET("GetOrders?")
+    Observable<Order> getOrder(@Query("order_id")String order_id);
+
     @GET("GetCar?")
     Observable<Car> getCar(@Query("car_id")String car_id);
 
@@ -63,5 +66,9 @@ interface RetrofitService {
             @Query("agency_name")String agency_name,
             @Query("phone")String phone,
             @Query("agency_id")String agency_id);
+
+
+    @GET("DelOrders?")
+    Observable<ResponseBody> delOrder(@Query("order_id")String order_id);
 
 }

@@ -73,12 +73,7 @@ public class OrderListFragment extends Fragment {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(MessageEvent messageEvent){
-        String msg = messageEvent.getMsg();
-        switch (msg){
-            case "addOrder":{
-                refreshOrders();
-            }
-        }
+        refreshOrders();
     }
 
     private void getCustomerOrderList() {
