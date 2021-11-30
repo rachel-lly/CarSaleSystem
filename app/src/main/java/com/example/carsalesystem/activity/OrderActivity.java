@@ -1,12 +1,11 @@
 package com.example.carsalesystem.activity;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.carsalesystem.R;
 import com.example.carsalesystem.controller.UserController;
@@ -15,6 +14,7 @@ import com.example.carsalesystem.model.Car;
 import com.example.carsalesystem.model.MessageEvent;
 import com.example.carsalesystem.model.User;
 import com.example.carsalesystem.retrofit.DataManager;
+import com.example.carsalesystem.util.ToastUtil;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -81,7 +81,7 @@ public class OrderActivity extends AppCompatActivity {
             nowCnt++;
             if(nowCnt>max){
                 nowCnt = max;
-                Toast.makeText(this,"可选择的最大数量为"+max,Toast.LENGTH_SHORT).show();
+                ToastUtil.toastShort(this,"可选择的最大数量为"+max);
             }
 
             mBinding.buyCarCnt.setText(String.valueOf(nowCnt));
@@ -108,8 +108,8 @@ public class OrderActivity extends AppCompatActivity {
 //    "sellman_id": String,     //销售人员id
 
             if(nowCnt==0){
-                if(max==0) Toast.makeText(this,"该车辆暂不支持售卖",Toast.LENGTH_SHORT).show();
-                else Toast.makeText(this,"请选择数量",Toast.LENGTH_SHORT).show();
+                if(max==0) ToastUtil.toastShort(this,"该车辆暂不支持售卖");
+                else ToastUtil.toastShort(this,"请选择购买数量");
             }else{
                 if(chooseCustomerId!=null){
                     String customer_id = chooseCustomerId;
@@ -120,13 +120,9 @@ public class OrderActivity extends AppCompatActivity {
                     addOrder(customer_id,carId,count,order_time,sellman_id);
                     finish();
                 }else{
-                    Toast.makeText(this,"请选择顾客",Toast.LENGTH_SHORT).show();
+                    ToastUtil.toastShort(this,"请选择顾客");
                 }
             }
-
-
-
-
 
         });
 
@@ -139,7 +135,7 @@ public class OrderActivity extends AppCompatActivity {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(responseBody ->{
                     EventBus.getDefault().post(new MessageEvent("addOrder"));
-                    Toast.makeText(this,responseBody.string(),Toast.LENGTH_LONG).show();
+                    ToastUtil.toastShort(this,responseBody.string());
                 },throwable -> {
                     throwable.printStackTrace();
                 });
@@ -150,7 +146,7 @@ public class OrderActivity extends AppCompatActivity {
         this.max = car.getCount() - car.getSell_number();
         if(max==0){
             nowCnt = 0;
-            Toast.makeText(this,"该车辆暂不支持售卖",Toast.LENGTH_SHORT).show();
+            ToastUtil.toastShort(this,"该车辆暂不支持售卖");
         }
 
 

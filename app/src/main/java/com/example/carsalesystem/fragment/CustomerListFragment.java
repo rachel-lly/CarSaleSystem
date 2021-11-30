@@ -110,11 +110,8 @@ public class CustomerListFragment extends Fragment {
     public void onMessageEvent(MessageEvent messageEvent){
         String msg = messageEvent.getMsg();
         switch (msg){
-            case "login":{
-                refreshCustomers();
-                break;
-            }
-            case "addCustomer":{
+            case "login":
+            case "addCustomer": {
                 refreshCustomers();
                 break;
             }

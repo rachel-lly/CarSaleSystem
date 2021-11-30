@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +12,7 @@ import com.example.carsalesystem.databinding.ActivityLoginBinding;
 import com.example.carsalesystem.model.MessageEvent;
 import com.example.carsalesystem.retrofit.DataManager;
 import com.example.carsalesystem.util.SPUtils;
+import com.example.carsalesystem.util.ToastUtil;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -97,7 +97,7 @@ public class LoginActivity extends AppCompatActivity {
                             login(id,password);
                         },throwable -> {
                             throwable.printStackTrace();
-                            Toast.makeText(this,"不存在该账号",Toast.LENGTH_SHORT).show();
+                            ToastUtil.toastShort(this,"不存在该账号");
                         });
             }else{
 
@@ -144,8 +144,6 @@ public class LoginActivity extends AppCompatActivity {
                     if(s.equals("登录成功")){
                         SPUtils.put("userId",id);
                         SPUtils.put("userPassword",password);
-
-//                        Toast.makeText(this,s+UserController.getsInstance().getUser().getUsername(),Toast.LENGTH_SHORT).show();
                         if(getIntent().getStringExtra("login")!=null){
                             EventBus.getDefault().post(new MessageEvent("login"));
                             finish();
@@ -154,7 +152,7 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(intent);
                         }
                     }else{
-                        Toast.makeText(this,"密码错误",Toast.LENGTH_SHORT).show();
+                        ToastUtil.toastShort(this,"密码错误");
                     }
 
                 },throwable ->{

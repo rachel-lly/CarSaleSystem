@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.PopupMenu;
-import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +14,8 @@ import com.example.carsalesystem.R;
 import com.example.carsalesystem.databinding.ActivityAddCustomerBinding;
 import com.example.carsalesystem.model.MessageEvent;
 import com.example.carsalesystem.retrofit.DataManager;
+import com.example.carsalesystem.util.CheckUtils;
+import com.example.carsalesystem.util.ToastUtil;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -45,26 +46,31 @@ public class AddCustomerActivity extends AppCompatActivity{
 
 
             if(TextUtils.isEmpty(mBinding.nameEv.getText())){
-                Toast.makeText(this,"姓名不能为空",Toast.LENGTH_SHORT).show();
+                ToastUtil.toastShort(this,"姓名不能为空");
             }else{
                 String name = mBinding.nameEv.getText().toString();
                 String sex = mBinding.sex.getText().toString();
 
                 if(TextUtils.isEmpty(mBinding.ageEv.getText())){
-                    Toast.makeText(this,"年龄不能为空",Toast.LENGTH_SHORT).show();
+                    ToastUtil.toastShort(this,"年龄不能为空");
                 }else{
                     String age = mBinding.ageEv.getText().toString();
                     int age_now = Integer.parseInt(age);
                     if(age_now>0&&age_now<150){
                         if(!TextUtils.isEmpty(mBinding.phoneEv.getText())) {
                             String phone = mBinding.phoneEv.getText().toString();
-                            addCustomer(name, sex, age, phone);
-                            finish();
+                            if(CheckUtils.isPhone(phone)){
+                                addCustomer(name, sex, age, phone);
+                                finish();
+                            }else{
+                                ToastUtil.toastShort(this,"手机号不合法");
+                            }
+
                         }else{
-                            Toast.makeText(this,"手机号不能为空",Toast.LENGTH_SHORT).show();
+                            ToastUtil.toastShort(this,"手机号不能为空");
                         }
                     }else{
-                        Toast.makeText(this,"年龄不合法",Toast.LENGTH_SHORT).show();
+                        ToastUtil.toastShort(this,"年龄不合法");
                     }
                 }
             }
@@ -81,7 +87,7 @@ public class AddCustomerActivity extends AppCompatActivity{
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(responseBody ->{
                     EventBus.getDefault().post(new MessageEvent("addCustomer"));
-                    Toast.makeText(this,responseBody.string(),Toast.LENGTH_LONG).show();
+                    ToastUtil.toastShort(this,responseBody.string());
                 },throwable -> {
                     throwable.printStackTrace();
                 });
@@ -92,7 +98,6 @@ public class AddCustomerActivity extends AppCompatActivity{
     private void showMenu(View v, int choose_sex_menu) {
         PopupMenu popupMenu = new PopupMenu(this,v);
         popupMenu.getMenuInflater().inflate(choose_sex_menu,popupMenu.getMenu());
-//        popupMenu.setGravity(Gravity.BOTTOM);
 
         popupMenu.setOnMenuItemClickListener(item ->{
             switch (item.getItemId()) {

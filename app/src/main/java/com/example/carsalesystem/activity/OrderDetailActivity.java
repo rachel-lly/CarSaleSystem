@@ -3,7 +3,6 @@ package com.example.carsalesystem.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +11,7 @@ import com.example.carsalesystem.databinding.ActivityOrderDetailBinding;
 import com.example.carsalesystem.model.MessageEvent;
 import com.example.carsalesystem.model.Order;
 import com.example.carsalesystem.retrofit.DataManager;
+import com.example.carsalesystem.util.ToastUtil;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -61,7 +61,7 @@ public class OrderDetailActivity extends AppCompatActivity {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(responseBody -> {
                     EventBus.getDefault().post(new MessageEvent("delOrder"));
-                    Toast.makeText(this,responseBody.string(),Toast.LENGTH_SHORT).show();
+                    ToastUtil.toastShort(this,responseBody.string());
                 });
     }
 

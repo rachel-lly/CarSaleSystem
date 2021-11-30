@@ -45,14 +45,14 @@ public class CustomerDetailActivity extends AppCompatActivity {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(customer -> {
                     initCustomer(customer);
-                    getCustomerOrderList(customer_id);
+                    getCustomerOrderList();
                 });
 
 
         setContentView(mBinding.getRoot());
     }
 
-    private void getCustomerOrderList(String customer_id) {
+    private void getCustomerOrderList() {
         adapter = new OrderListAdapter(this,orders);
         mBinding.recycleview.setAdapter(adapter);
         mBinding.recycleview.setLayoutManager(new GridLayoutManager(this,1));

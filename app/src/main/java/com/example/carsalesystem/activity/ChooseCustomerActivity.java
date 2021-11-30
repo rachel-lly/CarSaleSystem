@@ -80,11 +80,10 @@ public class ChooseCustomerActivity extends AppCompatActivity {
     public void onMessageEvent(MessageEvent messageEvent){
         String msg = messageEvent.getMsg();
         switch (msg){
-            case "login":{
+            case "login":
+            case "addCustomer": {
                 refreshCustomers();
-            }
-            case "addCustomer":{
-                refreshCustomers();
+                break;
             }
         }
     }
