@@ -1,5 +1,6 @@
 package com.example.carsalesystem.retrofit;
 
+import com.example.carsalesystem.model.Agency;
 import com.example.carsalesystem.model.Car;
 import com.example.carsalesystem.model.Customer;
 import com.example.carsalesystem.model.Order;
@@ -96,5 +97,9 @@ public class DataManager {
 
     public Observable<Order> getOrder(String order_id){
         return retrofitService.getOrder(order_id);
+    }
+
+    public Observable<Agency> getAgency(String agencyId){
+        return retrofitService.getAgency(agencyId);
     }
 }

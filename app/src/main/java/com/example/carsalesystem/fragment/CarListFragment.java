@@ -16,6 +16,7 @@ import com.example.carsalesystem.controller.UserController;
 import com.example.carsalesystem.databinding.FragmentCarListBinding;
 import com.example.carsalesystem.model.Car;
 import com.example.carsalesystem.model.MessageEvent;
+import com.example.carsalesystem.model.User;
 import com.example.carsalesystem.retrofit.DataManager;
 
 import org.greenrobot.eventbus.EventBus;
@@ -96,7 +97,14 @@ public class CarListFragment extends Fragment {
     }
 
     private void initCarList() {
-        String agency_id = UserController.getsInstance().getUser().getAgency_id();
+        boolean isUser = UserController.getsInstance().isUser();
+        String agency_id;
+        if(isUser){
+             agency_id = UserController.getsInstance().getUser().getAgency_id();
+        }else{
+            agency_id = UserController.getsInstance().getAgency().getId();
+        }
+
         DataManager.getInstance().getCarList(agency_id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.io())
@@ -104,5 +112,6 @@ public class CarListFragment extends Fragment {
                     carListAdapter.setCarList(cars);
                     carListAdapter.notifyDataSetChanged();
                 }));
+
     }
 }

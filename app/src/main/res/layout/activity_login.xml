@@ -89,6 +89,16 @@
                 android:layout_marginEnd="50dp"
                 />
 
+            <TextView
+                android:id="@+id/change_user_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="以经销商身份进入系统"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="italic"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                />
 
         </LinearLayout>
 

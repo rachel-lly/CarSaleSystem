@@ -115,9 +115,11 @@ public class CustomerListFragment extends Fragment {
         switch (msg){
             case "login":{
                 refreshCustomers();
+                break;
             }
             case "addCustomer":{
                 refreshCustomers();
+                break;
             }
         }
     }

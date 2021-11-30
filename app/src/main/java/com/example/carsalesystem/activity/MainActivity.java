@@ -42,9 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
         initFragment();
 
         setContentView(mBinding.getRoot());

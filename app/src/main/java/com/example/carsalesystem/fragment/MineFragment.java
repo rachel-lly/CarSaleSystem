@@ -23,6 +23,7 @@ import com.example.carsalesystem.activity.LoginActivity;
 import com.example.carsalesystem.activity.MainActivity;
 import com.example.carsalesystem.controller.UserController;
 import com.example.carsalesystem.databinding.FragmentMineBinding;
+import com.example.carsalesystem.model.Agency;
 import com.example.carsalesystem.model.MessageEvent;
 import com.example.carsalesystem.model.User;
 import com.example.carsalesystem.retrofit.DataManager;
@@ -82,19 +83,56 @@ public class MineFragment extends Fragment {
     }
 
     private void initUserMsg() {
-        User user = UserController.getsInstance().getUser();
-        mBinding.mineAge.setText(String.valueOf(user.getAge()));
-        mBinding.mineId.setText(user.getId());
-        mBinding.mineName.setText(user.getUsername());
-        mBinding.mineAgency.setText(user.getAgency_name());
-        mBinding.minePhone.setText(user.getPhone());
-        mBinding.mineSex.setText(user.getSex());
 
-        if(user.getSex().equals("女")){
-            Glide.with(this.getContext()).load(R.drawable.customer_avatar_girl).into(mBinding.mineAvater);
+        boolean isUser = UserController.getsInstance().isUser();
+        Toast.makeText(this.getContext(),UserController.getsInstance().isUser()+"--",Toast.LENGTH_SHORT).show();
+
+        if(isUser){
+
+
+            mBinding.mineIdText.setText("工号");
+
+
+            mBinding.mineNameText.setText("姓名");
+
+            mBinding.sexLayout.setVisibility(View.VISIBLE);
+            mBinding.ageLayout.setVisibility(View.VISIBLE);
+            mBinding.agencyLayout.setVisibility(View.VISIBLE);
+
+            mBinding.editLayout.setVisibility(View.VISIBLE);
+
+            User user = UserController.getsInstance().getUser();
+            mBinding.mineAge.setText(String.valueOf(user.getAge()));
+            mBinding.mineId.setText(user.getId());
+            mBinding.mineName.setText(user.getUsername());
+            mBinding.mineAgency.setText(user.getAgency_name());
+            mBinding.minePhone.setText(user.getPhone());
+            mBinding.mineSex.setText(user.getSex());
+
+            if(user.getSex().equals("女")){
+                Glide.with(this.getContext()).load(R.drawable.customer_avatar_girl).into(mBinding.mineAvater);
+            }else{
+                Glide.with(this.getContext()).load(R.drawable.customer_avatar_boy).into(mBinding.mineAvater);
+            }
         }else{
-            Glide.with(this.getContext()).load(R.drawable.customer_avatar_boy).into(mBinding.mineAvater);
+            Agency agency = UserController.getsInstance().getAgency();
+            mBinding.mineIdText.setText("经销商编号");
+            mBinding.mineId.setText(agency.getId());
+
+            mBinding.mineNameText.setText("经销商名称");
+            mBinding.mineName.setText(agency.getName());
+
+            mBinding.minePhone.setText(agency.getPhone());
+
+            mBinding.sexLayout.setVisibility(View.GONE);
+            mBinding.ageLayout.setVisibility(View.GONE);
+            mBinding.agencyLayout.setVisibility(View.GONE);
+
+            mBinding.editLayout.setVisibility(View.GONE);
         }
+
+
+
     }
 
     @Override
@@ -116,6 +154,7 @@ public class MineFragment extends Fragment {
         switch (msg){
             case "login":{
                 initUserMsg();
+                break;
             }
             case "editUser":{
 
@@ -134,6 +173,7 @@ public class MineFragment extends Fragment {
                             );
                             initUserMsg();
                         });
+                break;
             }
         }
     }

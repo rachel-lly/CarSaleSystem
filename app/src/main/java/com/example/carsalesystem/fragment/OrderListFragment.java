@@ -85,7 +85,14 @@ public class OrderListFragment extends Fragment {
     }
 
     private void refreshOrders() {
-        DataManager.getInstance().getOrderList(UserController.getsInstance().getUser().getAgency_id())
+        boolean isUser = UserController.getsInstance().isUser();
+        String agency_id;
+        if(isUser){
+            agency_id = UserController.getsInstance().getUser().getAgency_id();
+        }else{
+            agency_id = UserController.getsInstance().getAgency().getId();
+        }
+        DataManager.getInstance().getOrderList(agency_id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(orders -> {

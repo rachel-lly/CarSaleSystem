@@ -35,6 +35,7 @@
             >
 
             <TextView
+                android:id="@+id/mine_id_text"
                 android:text="工号"
                 style="@style/linear_item_text_behind_icon"
                 />
@@ -62,6 +63,7 @@
             >
 
             <TextView
+                android:id="@+id/mine_name_text"
                 android:text="姓名"
                 style="@style/linear_item_text_behind_icon"
                 />

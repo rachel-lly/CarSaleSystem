@@ -1,5 +1,6 @@
 package com.example.carsalesystem.retrofit;
 
+import com.example.carsalesystem.model.Agency;
 import com.example.carsalesystem.model.Car;
 import com.example.carsalesystem.model.Customer;
 import com.example.carsalesystem.model.Order;
@@ -19,6 +20,9 @@ interface RetrofitService {
 
     @GET("FindOrders?")
     Observable<List<Order>> getOrderList(@Query("agency_id")String agencyId);
+
+    @GET("FindAgency?")
+    Observable<Agency> getAgency(@Query("agency_id")String agencyId);
 
     @GET("FindCustomer")
     Observable<List<Customer>> getCustomer();
