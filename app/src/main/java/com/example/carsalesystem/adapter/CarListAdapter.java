@@ -42,7 +42,6 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.ViewHold
         ViewHolder holder = new ViewHolder(view);
 
         holder.itemView.setOnClickListener(v->{
-
             if(UserController.getsInstance().isUser()){
                 int position = holder.getAdapterPosition();
                 Car car = carList.get(position);

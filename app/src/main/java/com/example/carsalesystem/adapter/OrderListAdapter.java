@@ -56,13 +56,13 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
 
         holder.itemView.setOnClickListener(v->{
 
-            if(UserController.getsInstance().isUser()){
+
                 int position = holder.getAdapterPosition();
                 Order order = orders.get(position);
                 Intent intent = new Intent(context, OrderDetailActivity.class);
                 intent.putExtra("order_id",order.getOrder_id());
                 context.startActivity(intent);
-            }
+
 
         });
 

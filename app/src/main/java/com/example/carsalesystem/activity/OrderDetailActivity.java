@@ -3,10 +3,12 @@ package com.example.carsalesystem.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.carsalesystem.R;
+import com.example.carsalesystem.controller.UserController;
 import com.example.carsalesystem.databinding.ActivityOrderDetailBinding;
 import com.example.carsalesystem.model.MessageEvent;
 import com.example.carsalesystem.model.Order;
@@ -43,10 +45,15 @@ public class OrderDetailActivity extends AppCompatActivity {
                     initOrder(order);
                 });
 
+        if(UserController.getsInstance().isUser()){
+            mBinding.delete.setVisibility(View.VISIBLE);
+        }else{
+            mBinding.delete.setVisibility(View.GONE);
+        }
+
 
         mBinding.delete.setOnClickListener(v->{
             delOrder();
-
             finish();
         });
 
