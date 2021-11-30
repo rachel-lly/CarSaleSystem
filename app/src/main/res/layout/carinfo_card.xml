@@ -66,6 +66,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
                 android:orientation="horizontal"
                 >
                 <TextView
@@ -83,8 +84,8 @@
                     android:layout_height="wrap_content"
                     android:textSize="12sp"
                     android:text="万"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="3dp"
-                    android:textColor="?android:attr/textColorPrimary"
                     />
 
                 <TextView
@@ -92,32 +93,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
                     android:textSize="12sp"
-                    android:text="仅剩"
-                    />
-
-                <TextView
-                    android:id="@+id/car_cnt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="3dp"
-                    android:textSize="15sp"
-                    android:text="16"
-                    android:textColor="?android:attr/textColorPrimary"
-                    />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="已售"
-                    android:textSize="12sp"
+                    android:layout_gravity="center_vertical"
                     />
 
                 <TextView
@@ -127,7 +104,53 @@
                     android:layout_marginStart="3dp"
                     android:textSize="15sp"
                     android:text="16"
-                    android:textColor="?android:attr/textColorPrimary"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:textSize="12sp"
+                    android:text="辆"
+                    android:layout_gravity="center_vertical"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="仅剩"
+                    android:textSize="12sp"
+                    android:layout_gravity="center_vertical"
+                    />
+
+                <TextView
+                    android:id="@+id/car_cnt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:textSize="15sp"
+                    android:text="16"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:textSize="12sp"
+                    android:text="辆"
+                    android:layout_gravity="center_vertical"
                     />
 
             </LinearLayout>

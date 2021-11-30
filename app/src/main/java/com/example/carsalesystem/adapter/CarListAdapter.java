@@ -64,7 +64,7 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.ViewHold
         holder.carDes.setText(car.getDescription());
         Glide.with(context).load(car.getUrl()).into(holder.carImg);
         holder.carName.setText(car.getCar_name());
-        holder.carNum.setText(String.valueOf(car.getCount()));
+        holder.carNum.setText(String.valueOf(car.getCount()-car.getSell_number()));
         holder.carSoldNum.setText(String.valueOf(car.getSell_number()));
         holder.carPrice.setText(car.getPrice());
 
