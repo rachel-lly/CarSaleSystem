@@ -148,8 +148,13 @@ public class OrderActivity extends AppCompatActivity {
     private void initCar(Car car) {
         this.car = car;
         this.max = car.getCount() - car.getSell_number();
-        if(max==0) Toast.makeText(this,"该车辆暂不支持售卖",Toast.LENGTH_SHORT).show();
+        if(max==0){
+            nowCnt = 0;
+            Toast.makeText(this,"该车辆暂不支持售卖",Toast.LENGTH_SHORT).show();
+        }
 
+
+        mBinding.buyCarCnt.setText(String.valueOf(nowCnt));
         mBinding.carName.setText(car.getCar_name());
         mBinding.carMoney.setText(car.getPrice());
 

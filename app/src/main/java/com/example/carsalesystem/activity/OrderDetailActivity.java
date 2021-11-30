@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.carsalesystem.R;
 import com.example.carsalesystem.databinding.ActivityOrderDetailBinding;
+import com.example.carsalesystem.model.MessageEvent;
 import com.example.carsalesystem.model.Order;
 import com.example.carsalesystem.retrofit.DataManager;
 
@@ -45,7 +46,7 @@ public class OrderDetailActivity extends AppCompatActivity {
 
         mBinding.delete.setOnClickListener(v->{
             delOrder();
-            EventBus.getDefault().post("delOrder");
+
             finish();
         });
 
@@ -59,6 +60,7 @@ public class OrderDetailActivity extends AppCompatActivity {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(responseBody -> {
+                    EventBus.getDefault().post(new MessageEvent("delOrder"));
                     Toast.makeText(this,responseBody.string(),Toast.LENGTH_SHORT).show();
                 });
     }
