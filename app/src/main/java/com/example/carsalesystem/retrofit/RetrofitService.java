@@ -54,6 +54,14 @@ interface RetrofitService {
             @Query("age")String age,
             @Query("phone")String phone);
 
-
+    @GET("UpdUser?")
+    Observable<ResponseBody> updateUser(
+            @Query("id")String id,
+            @Query("username")String name,
+            @Query("sex")String sex,
+            @Query("age")int age,
+            @Query("agency_name")String agency_name,
+            @Query("phone")String phone,
+            @Query("agency_id")String agency_id);
 
 }

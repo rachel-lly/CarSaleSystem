@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingTop="50dp"
     android:background="#f6f6f6"
     tools:context=".fragment.MineFragment">
@@ -14,11 +15,10 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:src="@drawable/avatar"
-        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
         />
 
     <LinearLayout
-        android:layout_below="@id/mine_avater"
         android:id="@+id/mine_msg_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -185,13 +185,32 @@
     </LinearLayout>
 
     <RelativeLayout
+        android:id="@+id/edit_layout"
+        style="@style/layout_style"
+        android:background="@drawable/item_pressed_state"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:layout_marginTop="30dp"
+        >
+
+        <TextView
+            android:text="编辑信息"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="15sp"
+            android:layout_centerHorizontal="true"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
         android:id="@+id/loginout_layout"
         style="@style/layout_style"
         android:background="@drawable/item_pressed_state"
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
         android:layout_below="@+id/mine_msg_layout"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         >
 
         <TextView
@@ -205,4 +224,4 @@
     </RelativeLayout>
 
 
-</RelativeLayout>
+</LinearLayout>

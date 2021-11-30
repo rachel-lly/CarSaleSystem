@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_background_gray"
+    tools:context=".activity.EditMineActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/edit_mine_toolbar"
+        android:layout_width="match_parent"
+        app:title="编辑个人信息"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/colorPrimaryDark"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/OverflowMenuStyle"
+        app:layout_scrollFlags="scroll|enterAlways|snap"
+        />
+
+    <LinearLayout
+        android:id="@+id/mine_msg_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="25dp"
+        >
+
+        <RelativeLayout
+            android:id="@+id/id_layout"
+            style="@style/layout_style"
+            android:background="@drawable/item_pressed_state"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            >
+
+            <TextView
+                android:text="工号"
+                style="@style/linear_item_text_behind_icon"
+                />
+
+            <TextView
+                android:id="@+id/mine_id"
+                android:text="3219005128"
+                style="@style/linear_item_text_end"
+                />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f4f4f4"
+            />
+
+        <RelativeLayout
+            android:id="@+id/agency_layout"
+            style="@style/layout_style"
+            android:background="@drawable/item_pressed_state"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            >
+
+            <TextView
+                android:text="所属经销商"
+                style="@style/linear_item_text_behind_icon"
+                />
+
+            <TextView
+                android:id="@+id/mine_agency"
+                android:text="广汇集团"
+                style="@style/linear_item_text_end"
+                />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f4f4f4"
+            />
+
+        <RelativeLayout
+            android:id="@+id/name_layout"
+            style="@style/layout_style"
+            android:background="@drawable/item_pressed_state"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            >
+
+            <TextView
+                android:text="姓名"
+                style="@style/linear_item_text_behind_icon"
+                />
+
+            <EditText
+                android:id="@+id/name_ev"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:textSize="16sp"
+                android:singleLine="true"
+                android:imeOptions="actionNext"
+                android:layout_alignParentEnd="true"
+                />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f4f4f4"
+            />
+
+        <RelativeLayout
+            android:id="@+id/sex_layout"
+            style="@style/layout_style"
+            android:background="@drawable/item_pressed_state"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            >
+
+            <TextView
+                android:text="姓别"
+                style="@style/linear_item_text_behind_icon"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"
+                >
+
+                <TextView
+
+                    android:id="@+id/sex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="女"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"
+                    android:gravity="start"
+
+                    />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@mipmap/choose_down"
+                    android:layout_marginStart="3dp"
+
+                    />
+
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f4f4f4"
+            />
+
+        <RelativeLayout
+            android:id="@+id/age_layout"
+            style="@style/layout_style"
+            android:background="@drawable/item_pressed_state"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            >
+
+            <TextView
+                android:text="年龄"
+                style="@style/linear_item_text_behind_icon"
+                />
+
+            <EditText
+                android:id="@+id/age_ev"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:digits="1234567890"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:textSize="16sp"
+                android:singleLine="true"
+                android:imeOptions="actionNext"
+                android:layout_alignParentEnd="true"
+                />
+
+        </RelativeLayout>
+
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f4f4f4"
+            />
+
+        <RelativeLayout
+            android:id="@+id/phone_layout"
+            style="@style/layout_style"
+            android:background="@drawable/item_pressed_state"
+            android:paddingTop="5dp"
+            android:paddingBottom="15dp"
+            >
+
+            <TextView
+                android:text="电话"
+                style="@style/linear_item_text_behind_icon"
+                />
+
+            <EditText
+                android:layout_alignParentEnd="true"
+                android:id="@+id/phone_ev"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:textSize="16sp"
+                android:singleLine="true"
+                android:imeOptions="actionNext"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="确定"
+        android:id="@+id/add_button"
+        android:textColor="#fff"
+        android:background="#77afd7"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        />
+
+</LinearLayout>

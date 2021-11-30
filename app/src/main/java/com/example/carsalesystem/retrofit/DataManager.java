@@ -78,4 +78,15 @@ public class DataManager {
     public Observable<List<Order>> getOrderList(String agencyId){
         return retrofitService.getOrderList(agencyId);
     }
+
+    public Observable<ResponseBody> updateUser(
+            String id,
+            String name,
+            String sex,
+            int age,
+            String agency_name,
+            String phone,
+            String agency_id){
+        return retrofitService.updateUser(id, name, sex, age, agency_name, phone, agency_id);
+    }
 }
