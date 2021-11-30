@@ -35,10 +35,6 @@ public class UserController {
         return isUser;
     }
 
-    public void setUser(boolean user) {
-        isUser = user;
-    }
-
     public Agency getAgency(){
         return agency;
     }
@@ -46,6 +42,10 @@ public class UserController {
     public void setAgency(String id,String name,String phone){
         agency = new Agency(id,name,phone);
         isUser = false;
+    }
+
+    public String getAgencyId(){
+        return agency.getId();
     }
 
 }

@@ -24,6 +24,9 @@ interface RetrofitService {
     @GET("FindAgency?")
     Observable<Agency> getAgency(@Query("agency_id")String agencyId);
 
+    @GET("GetUser?")
+    Observable<List<User>> getAgencyUser(@Query("agency_id")String agencyId);
+
     @GET("FindCustomer")
     Observable<List<Customer>> getCustomer();
 

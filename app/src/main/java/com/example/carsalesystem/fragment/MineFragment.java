@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide;
 import com.example.carsalesystem.R;
 import com.example.carsalesystem.activity.EditMineActivity;
 import com.example.carsalesystem.activity.LoginActivity;
+import com.example.carsalesystem.activity.ShowUserListActivity;
 import com.example.carsalesystem.controller.UserController;
 import com.example.carsalesystem.databinding.FragmentMineBinding;
 import com.example.carsalesystem.model.Agency;
@@ -71,6 +72,12 @@ public class MineFragment extends Fragment {
             startActivity(intent);
         });
 
+
+        mBinding.showUserListLayout.setOnClickListener(v->{
+            Intent intent = new Intent(this.getContext(), ShowUserListActivity.class);
+            startActivity(intent);
+        });
+
     }
 
     private void initUserMsg() {
@@ -79,10 +86,9 @@ public class MineFragment extends Fragment {
 
         if(isUser){
 
+            mBinding.showUserListLayout.setVisibility(View.GONE);
 
             mBinding.mineIdText.setText("工号");
-
-
             mBinding.mineNameText.setText("姓名");
 
             mBinding.sexLayout.setVisibility(View.VISIBLE);
@@ -106,6 +112,9 @@ public class MineFragment extends Fragment {
             }
         }else{
             Agency agency = UserController.getsInstance().getAgency();
+
+            mBinding.showUserListLayout.setVisibility(View.VISIBLE);
+
             mBinding.mineIdText.setText("经销商编号");
             mBinding.mineId.setText(agency.getId());
 

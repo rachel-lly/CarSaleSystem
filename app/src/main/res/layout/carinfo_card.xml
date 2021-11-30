@@ -19,7 +19,7 @@
         <ImageView
             android:layout_marginTop="3dp"
             android:layout_marginBottom="3dp"
-            android:layout_marginStart="3dp"
+            android:layout_marginStart="5dp"
             android:id="@+id/car_img"
             android:adjustViewBounds="true"
             android:maxHeight="160dp"

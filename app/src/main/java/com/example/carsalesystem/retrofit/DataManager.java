@@ -99,4 +99,8 @@ public class DataManager {
     public Observable<Agency> getAgency(String agencyId){
         return retrofitService.getAgency(agencyId);
     }
+
+    public Observable<List<User>> getAgencyUser(String agencyId){
+        return retrofitService.getAgencyUser(agencyId);
+    }
 }
