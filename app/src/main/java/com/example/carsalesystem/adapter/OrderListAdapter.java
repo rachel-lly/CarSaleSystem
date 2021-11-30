@@ -1,5 +1,6 @@
 package com.example.carsalesystem.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -12,9 +13,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.carsalesystem.R;
 import com.example.carsalesystem.activity.OrderDetailActivity;
+import com.example.carsalesystem.controller.UserController;
 import com.example.carsalesystem.model.Order;
 
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 
 public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.ViewHolder> {
 
@@ -28,6 +35,14 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
     }
 
     public void setOrders(List<Order> orders) {
+        Collections.sort(orders, (o1, o2) -> {
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+
+            long time1 = Objects.requireNonNull(format.parse(o1.getOrder_time(), new ParsePosition(0))).getTime() / 1000;
+
+            long time2 = Objects.requireNonNull(format.parse(o2.getOrder_time(), new ParsePosition(0))).getTime() / 1000;
+            return (int)(time2 - time1);
+        });
         this.orders = orders;
     }
 
@@ -40,11 +55,15 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
         OrderListAdapter.ViewHolder holder = new OrderListAdapter.ViewHolder(view);
 
         holder.itemView.setOnClickListener(v->{
-            int position = holder.getAdapterPosition();
-            Order order = orders.get(position);
-            Intent intent = new Intent(context, OrderDetailActivity.class);
-            intent.putExtra("order_id",order.getOrder_id());
-            context.startActivity(intent);
+
+            if(UserController.getsInstance().isUser()){
+                int position = holder.getAdapterPosition();
+                Order order = orders.get(position);
+                Intent intent = new Intent(context, OrderDetailActivity.class);
+                intent.putExtra("order_id",order.getOrder_id());
+                context.startActivity(intent);
+            }
+
         });
 
         return holder;

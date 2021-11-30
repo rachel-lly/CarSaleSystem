@@ -42,9 +42,10 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.ViewHold
         ViewHolder holder = new ViewHolder(view);
 
         holder.itemView.setOnClickListener(v->{
-            int position = holder.getAdapterPosition();
-            Car car = carList.get(position);
+
             if(UserController.getsInstance().isUser()){
+                int position = holder.getAdapterPosition();
+                Car car = carList.get(position);
                 Intent intent = new Intent(context, OrderActivity.class);
                 intent.putExtra("car_id",car.getCar_id());
                 context.startActivity(intent);
