@@ -73,6 +73,13 @@ public class CustomerListFragment extends Fragment {
         mBinding.recycleview.setAdapter(adapter);
         mBinding.recycleview.setLayoutManager(new GridLayoutManager(this.getContext(),1));
         refreshCustomers();
+
+
+        mBinding.swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimaryDark);
+        mBinding.swipeRefreshLayout.setOnRefreshListener(() -> {
+            refreshCustomers();
+            mBinding.swipeRefreshLayout.setRefreshing(false);
+        });
     }
 
     @Override

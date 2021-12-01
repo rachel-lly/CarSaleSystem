@@ -9,7 +9,9 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.example.carsalesystem.R;
 import com.example.carsalesystem.adapter.CarListAdapter;
 import com.example.carsalesystem.controller.UserController;
 import com.example.carsalesystem.databinding.FragmentCarListBinding;
@@ -70,7 +72,11 @@ public class CarListFragment extends Fragment {
 
         initCarList();
 
-
+        mBinding.swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimaryDark);
+        mBinding.swipeRefreshLayout.setOnRefreshListener(() -> {
+            initCarList();
+            mBinding.swipeRefreshLayout.setRefreshing(false);
+        });
 
 
     }

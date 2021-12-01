@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 
+import com.example.carsalesystem.R;
 import com.example.carsalesystem.adapter.OrderListAdapter;
 import com.example.carsalesystem.controller.UserController;
 import com.example.carsalesystem.databinding.FragmentOrderListBinding;
@@ -80,6 +81,12 @@ public class OrderListFragment extends Fragment {
         mBinding.recycleview.setLayoutManager(new GridLayoutManager(this.getContext(),1));
 
         refreshOrders();
+
+        mBinding.swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimaryDark);
+        mBinding.swipeRefreshLayout.setOnRefreshListener(() -> {
+            refreshOrders();
+            mBinding.swipeRefreshLayout.setRefreshing(false);
+        });
     }
 
     private void refreshOrders() {
