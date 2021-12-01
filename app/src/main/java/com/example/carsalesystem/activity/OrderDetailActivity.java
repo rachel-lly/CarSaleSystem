@@ -77,10 +77,6 @@ public class OrderDetailActivity extends AppCompatActivity {
         mBinding.sellMan.setText(order.getSellman_name());
         mBinding.agencyName.setText(order.getAgency_name());
 
-        String id = userController.getUserId();
-        String sellId = order.getSellman_id();
-        ToastUtil.toastShort(this,id+"---"+sellId);
-
         if(userController.isUser()&&userController.getUserId().equals(order.getSellman_id())){
             mBinding.delete.setVisibility(View.VISIBLE);
         }else{
