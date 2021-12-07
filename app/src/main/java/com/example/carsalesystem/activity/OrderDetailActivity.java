@@ -1,5 +1,6 @@
 package com.example.carsalesystem.activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import com.example.carsalesystem.model.MessageEvent;
 import com.example.carsalesystem.model.Order;
 import com.example.carsalesystem.retrofit.DataManager;
 import com.example.carsalesystem.util.ToastUtil;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -46,13 +48,30 @@ public class OrderDetailActivity extends AppCompatActivity {
                 },throwable -> throwable.printStackTrace());
 
         mBinding.delete.setOnClickListener(v->{
-            delOrder();
-            finish();
+            showDeleteDialog();
+
         });
 
         mBinding.sure.setOnClickListener(v->finish());
 
         setContentView(mBinding.getRoot());
+    }
+
+    private void showDeleteDialog() {
+
+        new MaterialAlertDialogBuilder(this)
+                .setTitle("确定取消订单吗？")
+                .setMessage("此操作不能撤销")
+                .setPositiveButton("确定", (dialog, which) -> {
+                    delOrder();
+                    finish();
+                })
+                .setNegativeButton("取消", (dialog, which) -> {
+
+                })
+                .show();
+
+
     }
 
     private void delOrder() {
